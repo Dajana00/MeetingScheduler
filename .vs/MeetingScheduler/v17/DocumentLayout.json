@@ -206,8 +206,7 @@
               "ViewState": "AgIAALAAAAAAAAAAAAAAAMoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T08:46:28.456Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -220,8 +219,7 @@
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T11:35:35.09Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -233,8 +231,7 @@
               "RelativeToolTip": "ViewModel\\CreateLeaveRequestViewModel.cs",
               "ViewState": "AgIAALkAAAAAAAAAAAAxwGgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T09:00:54.911Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T09:00:54.911Z"
             },
             {
               "$type": "Document",
@@ -246,8 +243,7 @@
               "RelativeToolTip": "Domain\\Model\\SpecialEvent.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwBEAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T07:53:38.067Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T07:53:38.067Z"
             },
             {
               "$type": "Document",
@@ -259,8 +255,7 @@
               "RelativeToolTip": "Domain\\Model\\Leave.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAUwCcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T10:05:05.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T10:05:05.913Z"
             },
             {
               "$type": "Document",
@@ -272,8 +267,7 @@
               "RelativeToolTip": "MyDbContext.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAowCIAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T13:27:22.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T13:27:22.752Z"
             },
             {
               "$type": "Document",
@@ -283,7 +277,7 @@
               "RelativeDocumentMoniker": "Repository\\LeaveRepository.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\Repository\\LeaveRepository.cs",
               "RelativeToolTip": "Repository\\LeaveRepository.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAADwvzgAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAADwvy0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T08:25:00.072Z",
               "EditorCaption": ""
@@ -297,8 +291,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\View\\CreateLeaveRequest.xaml",
               "RelativeToolTip": "View\\CreateLeaveRequest.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-29T09:10:11.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T09:10:11.007Z"
             },
             {
               "$type": "Document",
@@ -309,8 +302,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\View\\MonthlyScheduler.xaml",
               "RelativeToolTip": "View\\MonthlyScheduler.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-27T09:48:55.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T09:48:55.543Z"
             },
             {
               "$type": "Document",
@@ -322,8 +314,7 @@
               "RelativeToolTip": "Domain\\Model\\DayOff.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAIA1wBgAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T10:09:21.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T10:09:21.341Z"
             },
             {
               "$type": "Document",
@@ -335,8 +326,7 @@
               "RelativeToolTip": "ViewModel\\UsersRequestsViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T13:04:26.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T13:04:26.622Z"
             },
             {
               "$type": "Document",
@@ -348,8 +338,7 @@
               "RelativeToolTip": "ViewModel\\LoginViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T09:12:46.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T09:12:46.396Z"
             },
             {
               "$type": "Document",
@@ -361,8 +350,7 @@
               "RelativeToolTip": "Service\\LeaveService.cs",
               "ViewState": "AgIAABoAAAAAAAAAAAAgwDIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:13:14.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:13:14.029Z"
             },
             {
               "$type": "Document",
@@ -374,8 +362,7 @@
               "RelativeToolTip": "Domain\\RepositoryInterfaces\\ILeaveRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:12:28.113Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:12:28.113Z"
             },
             {
               "$type": "Document",
@@ -387,8 +374,7 @@
               "RelativeToolTip": "Domain\\Model\\SickLeave.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAawBYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T10:08:57.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T10:08:57.373Z"
             },
             {
               "$type": "Document",
@@ -400,8 +386,7 @@
               "RelativeToolTip": "Service\\UserService.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T10:43:39.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T10:43:39.997Z"
             },
             {
               "$type": "Document",
@@ -413,8 +398,7 @@
               "RelativeToolTip": "ViewModel\\MainWindowViewModel.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAIwB8AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:14:39.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:14:39.645Z"
             },
             {
               "$type": "Document",
@@ -426,8 +410,7 @@
               "RelativeToolTip": "App.xaml.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAgwCwAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T10:41:58.253Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T10:41:58.253Z"
             },
             {
               "$type": "Document",
@@ -439,8 +422,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAOcSAAAAAAAAAAD4v/gSAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-10-29T09:59:18.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-29T09:59:18.58Z"
             },
             {
               "$type": "Document",
@@ -451,8 +433,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\View\\LoginView.xaml",
               "RelativeToolTip": "View\\LoginView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-27T12:17:11.121Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:17:11.121Z"
             },
             {
               "$type": "Document",
@@ -464,8 +445,7 @@
               "RelativeToolTip": "ViewModel\\CreateUserViewModel.cs",
               "ViewState": "AgIAAE4AAAAAAAAAAAA1wFsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T14:04:55.088Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T14:04:55.088Z"
             },
             {
               "$type": "Document",
@@ -476,8 +456,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\View\\UsersRequests.xaml",
               "RelativeToolTip": "View\\UsersRequests.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-28T08:59:36.783Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T08:59:36.783Z"
             },
             {
               "$type": "Document",
@@ -489,8 +468,7 @@
               "RelativeToolTip": "Domain\\Model\\Vacation.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAASwA8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T10:09:39.843Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T10:09:39.843Z"
             },
             {
               "$type": "Document",
@@ -502,8 +480,7 @@
               "RelativeToolTip": "ViewModel\\AllUsersViewModel.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAAwGAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T14:46:54.873Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T14:46:54.873Z"
             },
             {
               "$type": "Document",
@@ -515,8 +492,7 @@
               "RelativeToolTip": "Domain\\RepositoryInterfaces\\IUserRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:12:21.882Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:12:21.882Z"
             },
             {
               "$type": "Document",
@@ -527,8 +503,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\View\\AllUsersView.xaml",
               "RelativeToolTip": "View\\AllUsersView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-28T14:46:25.072Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T14:46:25.072Z"
             },
             {
               "$type": "Document",
@@ -539,8 +514,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\MainWindow.xaml",
               "RelativeToolTip": "MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-27T12:17:40.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:17:40.077Z"
             },
             {
               "$type": "Document",
@@ -552,8 +526,7 @@
               "RelativeToolTip": "View\\UsersRequests.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T15:56:23.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T15:56:23.119Z"
             },
             {
               "$type": "Document",
@@ -565,8 +538,7 @@
               "RelativeToolTip": "Dto\\MonthlyEventDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T13:36:46.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T13:36:46.456Z"
             },
             {
               "$type": "Document",
@@ -578,8 +550,7 @@
               "RelativeToolTip": "View\\AllUsersView.xaml.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T14:46:38.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T14:46:38.663Z"
             },
             {
               "$type": "Document",
@@ -591,8 +562,7 @@
               "RelativeToolTip": "Dto\\DisplayEventsDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T13:32:34.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T13:32:34.483Z"
             },
             {
               "$type": "Document",
@@ -604,8 +574,7 @@
               "RelativeToolTip": "Repository\\UserRepository.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:13:07.101Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:13:07.101Z"
             },
             {
               "$type": "Document",
@@ -617,8 +586,7 @@
               "RelativeToolTip": "ViewModel\\BaseViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:13:44.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:13:44.4Z"
             },
             {
               "$type": "Document",
@@ -630,8 +598,7 @@
               "RelativeToolTip": "Domain\\Model\\User.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T15:07:30.959Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T15:07:30.959Z"
             },
             {
               "$type": "Document",
@@ -643,8 +610,7 @@
               "RelativeToolTip": "Injector\\Injector.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T14:13:29.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T14:13:29.75Z"
             },
             {
               "$type": "Document",
@@ -655,8 +621,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\Themes\\DataGridStyle.xaml",
               "RelativeToolTip": "Themes\\DataGridStyle.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-28T14:52:16.247Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T14:52:16.247Z"
             },
             {
               "$type": "Document",
@@ -667,8 +632,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\View\\CreateUser.xaml",
               "RelativeToolTip": "View\\CreateUser.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-27T12:16:53.665Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:16:53.665Z"
             },
             {
               "$type": "Document",
@@ -679,8 +643,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\Themes\\ButtonTheme.xaml",
               "RelativeToolTip": "Themes\\ButtonTheme.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-28T14:54:12.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T14:54:12.058Z"
             },
             {
               "$type": "Document",
@@ -691,8 +654,7 @@
               "ToolTip": "C:\\Users\\User\\Desktop\\MeetingScheduler\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-28T14:53:07.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T14:53:07.559Z"
             },
             {
               "$type": "Document",
@@ -704,8 +666,7 @@
               "RelativeToolTip": "MainWindow.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T12:18:06.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T12:18:06.369Z"
             },
             {
               "$type": "Document",
@@ -717,8 +678,7 @@
               "RelativeToolTip": "Utilities\\PasswordHasher.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T08:01:29.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T08:01:29.728Z"
             },
             {
               "$type": "Document",
@@ -730,8 +690,7 @@
               "RelativeToolTip": "AssemblyInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T10:41:56.967Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T10:41:56.967Z"
             },
             {
               "$type": "Document",
@@ -743,8 +702,7 @@
               "RelativeToolTip": "View\\MonthlyScheduler.xaml.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAIBJwBkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T08:29:07.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T08:29:07.398Z"
             },
             {
               "$type": "Document",
@@ -756,8 +714,7 @@
               "RelativeToolTip": "Utilities\\DateToVisibilityConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T07:59:33.922Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T07:59:33.922Z"
             },
             {
               "$type": "Document",
@@ -769,8 +726,7 @@
               "RelativeToolTip": "Utilities\\RelayCommand.cs",
               "ViewState": "AgIAAD4AAAAAAAAAAIBJwEEAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T08:01:41.177Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T08:01:41.177Z"
             },
             {
               "$type": "Document",
@@ -782,8 +738,7 @@
               "RelativeToolTip": "Utilities\\DateToEventsConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T07:59:19.615Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-28T07:59:19.615Z"
             }
           ]
         }

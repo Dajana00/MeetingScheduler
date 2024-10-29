@@ -1,0 +1,2 @@
+2024-10-28 12:41:34.371 +01:00 [INF] Aplikacija je uspešno pokrenuta.
+2024-10-28 12:46:04.885 +01:00 [INF] Aplikacija je uspešno pokrenuta.

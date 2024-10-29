@@ -1,0 +1,6 @@
+2024-10-29 10:59:46.651 +01:00 [INF] User login try: kanda
+2024-10-29 10:59:48.286 +01:00 [WRN] Error while user login: kanda
+2024-10-29 10:59:55.834 +01:00 [INF] User login try: daks
+2024-10-29 10:59:55.903 +01:00 [INF] User successifully logged in
+2024-10-29 11:00:19.403 +01:00 [INF] Searh for person with {id}
+2024-10-29 11:03:33.796 +01:00 [INF] Application started.

@@ -31,6 +31,7 @@
                 VerticalAlignment="Top"
                 Style="{StaticResource ButtonTheme}"
                 Margin="1103,48,50,50"
+                    Visibility="{Binding UsersButtonVisibility}"
                 Command="{Binding NavigationCommand}" CommandParameter="Users" />
             <Button Content="Requests"
                 Width="110" Height="40"
@@ -54,6 +55,34 @@
                   Style="{StaticResource ButtonTheme}"
                   Margin="213,48,0,50"
                   Command="{Binding NavigationCommand}" CommandParameter="CreateUser" />
+
+            
+            <Button Content="Profile"
+                Width="110" Height="40"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Style="{StaticResource ButtonTheme}"
+                 Margin="213,48,0,50"
+                    HorizontalContentAlignment="Center"
+                 Command="{Binding NavigationCommand}" CommandParameter="Profile" />
+            <Button Content="New Meeting"
+                 Width="110" Height="40"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Style="{StaticResource ButtonTheme}"  
+                Margin="53,48,0,50"
+                 HorizontalContentAlignment="Center"
+                Command="{Binding NavigationCommand}" CommandParameter="NewMeeting" />
+
+            <Button Content="Weekly schedule"
+                 Width="110" Height="40"
+                HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                Style="{StaticResource ButtonTheme}"  
+                Margin="353,48,0,50"
+                HorizontalContentAlignment="Center"
+                Command="{Binding NavigationCommand}" CommandParameter="WeeklyScheduler" />
+
             <Grid HorizontalAlignment="Center" Width="1216" Margin="50,118,0,76">   
 
                 <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="40,-26,0,0"></Frame>

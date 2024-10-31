@@ -19,6 +19,7 @@ namespace MeetingScheduler
         public DbSet<SickLeave> SickLeaves { get; set; }
         public DbSet<DayOff> DaysOff { get; set; }
         public DbSet<SpecialEvent> SpecialEvents { get; set; }
+        public DbSet<Meeting> Meetings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,6 +34,7 @@ namespace MeetingScheduler
             modelBuilder.Entity<DayOff>().ToTable("DaysOff");
             modelBuilder.Entity<SickLeave>().ToTable("SickLeaves");
             modelBuilder.Entity<SpecialEvent>().ToTable("SpecialEvents");
+            modelBuilder.Entity<Meeting>().ToTable("Meetings");
         }
     }
 }

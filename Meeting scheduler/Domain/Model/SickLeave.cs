@@ -13,7 +13,7 @@ namespace MeetingScheduler.Domain.Model
 
         public SickLeave()
         {
-            ColorHex = "#FFD700";
+            ColorHex = "#AFD700";
         }
         public SickLeave(User user, DateTime startDate, DateTime endDate, Status status, string medicalCertificate)
         {
@@ -22,7 +22,7 @@ namespace MeetingScheduler.Domain.Model
             User = user;
             EndDate = endDate;
             Status = status;
-            ColorHex = "#FFD700";
+            ColorHex = "#AFD700";
         }   
     }
 

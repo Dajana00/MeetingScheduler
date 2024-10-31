@@ -1,6 +1,7 @@
 ﻿using MeetingScheduler.Domain.Model;
 using MeetingScheduler.Dto;
 using MeetingScheduler.Service;
+using MeetingScheduler.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,8 +28,8 @@ namespace MeetingScheduler.ViewModel
             _leaveService = new LeaveService();
             People = new ObservableCollection<User>(LoadPeople());
 
-            EditCommand = new RelayCommand(EditUser);
-            DeleteCommand = new RelayCommand(DeleteUser);
+            EditCommand = new RelayCommand<User>(EditUser);
+            DeleteCommand = new RelayCommand<User>(DeleteUser);
 
             Requests = new ObservableCollection<MonthlyEventDto>(GetAllLeaveRequests());
 
@@ -38,12 +39,13 @@ namespace MeetingScheduler.ViewModel
         {
             return _personService.GetAll();
         }
-        private void EditUser()
+        private void EditUser(User user)
         {
-
+            EditProfileDataView editProfileDataView = new EditProfileDataView(user);
+            editProfileDataView.Show();
         }
 
-        private void DeleteUser()
+        private void DeleteUser(User user)
         {
 
         }
@@ -97,13 +99,15 @@ namespace MeetingScheduler.ViewModel
                     SickLeave => "Sick Leave",
                     DayOff => "Day Off",
                     Vacation => "Vacation",
+                    SpecialEvent => "SpecialEvent",
                     _ => "Other"
                 },
                 Description = leave switch
                 {
                     Vacation vacation => vacation.Type,
                     DayOff dayOff => dayOff.Reason,
-                    SickLeave sickLeave => sickLeave.MedicalCertificate
+                    SickLeave sickLeave => sickLeave.MedicalCertificate,
+                    SpecialEvent specialEvent => specialEvent.Name
                 }
 
             };

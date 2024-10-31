@@ -25,7 +25,7 @@ namespace MeetingScheduler.Repository
         {
             if (leave.User != null)
             {
-                _context.Attach(leave.User); // Ovime označavate da `User` već postoji
+                _context.Attach(leave.User); // Ovim oznacavamo da User vec postoji
             }
 
             _dbSet.Add(leave);
@@ -49,24 +49,36 @@ namespace MeetingScheduler.Repository
             return _dbSet.Include(l => l.User).
                 ToList();
         }
-
-        public List<Leave> GetEventsByDate(DateTime date)
+        public List<Leave> GetAllPending()
+        {
+            return _dbSet.Include(l => l.User).Where(l=>l.Status == Status.PENDING).
+                ToList();
+        }
+        public List<Leave> GetAllApproved()
+        {
+            return _dbSet.Include(l => l.User).Where(l => l.Status == Status.APPROVED).
+                ToList();
+        }
+        public List<Leave> GetByDate(DateTime date)
         {
             return _dbSet.Include(l => l.User)
                 .Where(leave =>
                     leave.StartDate <= date &&
-                    leave.EndDate >= date)
+                    leave.EndDate >= date && leave.Status == Status.APPROVED)
                 .ToList();
         }
-
-      
-
-        public List<Leave> GetEventsByDateForUser(DateTime date, int id)
+        public List<Leave> GetByUserId(int id)
+        {
+            return _dbSet.Include(l => l.User)
+                .Where(leave =>leave.User.Id == id && leave.Status == Status.APPROVED) 
+                .ToList();
+        }
+        public List<Leave> GetByDateForUser(DateTime date, int id)
         {
             return _dbSet.Include(l => l.User)
                 .Where(leave =>
                     leave.StartDate <= date &&
-                    leave.EndDate >= date && leave.User.Id ==id)
+                    leave.EndDate >= date && leave.User.Id ==id && leave.Status == Status.APPROVED)
                 .ToList();
         }
     }

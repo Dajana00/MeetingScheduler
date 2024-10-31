@@ -73,6 +73,18 @@ namespace MeetingScheduler.Service
                 Logger.LogError("Error: {UserName}");
             }
         }
+        public void Update(User person)
+        {
+            try
+            {
+                _personRepository.Update(person);
+                Logger.LogInformation("User successiffuly updated");
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("Error: {UserName}");
+            }
+        }
 
         public List<User> GetAll()
         {

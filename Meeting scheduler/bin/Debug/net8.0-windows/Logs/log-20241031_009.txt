@@ -1,0 +1,5 @@
+2024-10-31 13:12:52.312 +01:00 [INF] User login try: nina
+2024-10-31 13:12:53.673 +01:00 [INF] User successifully logged in
+2024-10-31 13:13:40.585 +01:00 [INF] Searh for person with {id}
+2024-10-31 13:15:37.113 +01:00 [INF] Searh for person with {id}
+2024-10-31 13:25:51.405 +01:00 [INF] Application started.

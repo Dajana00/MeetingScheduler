@@ -22,8 +22,8 @@ namespace MeetingScheduler.Domain.Model
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public Status Status { get; set; }
-        public DateTime? ApprovalDate { get; set; }
-        public int? ApprovedByAdminId { get; set; } // Admin koji je odobrio
+        public DateTime? CheckedDate { get; set; } //datum kada je admin odobrio/odbio
+        public int? CheckedByAdminId { get; set; } // Admin koji je odobrio/odbio
         public string ColorHex { get; set; } = "#ADD8E6";
 
         [NotMapped]

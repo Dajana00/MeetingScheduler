@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Navigation;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -21,7 +22,6 @@ namespace MeetingScheduler.ViewModel
         public ICommand NavigateBackCommand => new RelayCommand(OnNavigateBack);
 
         public User LoggedPerson { get; set; } = App.LoggedUser;
-        public bool IsAdmin => LoggedPerson?.IsAdmin ?? false;
 
         public MainWindowViewModel(MainWindow mainWindow, NavigationService navigationService)
         {
@@ -43,6 +43,11 @@ namespace MeetingScheduler.ViewModel
                 _navigationService.GoBack();
             }
         }
+        public bool IsAdmin => LoggedPerson?.IsAdmin ?? false;
+
+        public Visibility UsersButtonVisibility => IsAdmin ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility RequestsButtonVisibility => IsAdmin ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility CreateUserButtonVisibility => IsAdmin ? Visibility.Visible : Visibility.Collapsed;
 
         public void Navigationations(object param)
         {
@@ -63,9 +68,21 @@ namespace MeetingScheduler.ViewModel
                 case "Users":
                     navigationService.Navigate(new AllUsersView());
                     break;
-                 case "Requests":
+                case "Requests":
                     navigationService.Navigate(new UsersRequestsView());
                     break;
+                case "Profile":
+                    EditProfileDataView window = new EditProfileDataView(App.LoggedUser);
+                    window.Show();
+                    //navigationService.Navigate(new EditProfileDataView(App.LoggedUser));
+                    break;
+                case "NewMeeting":
+                    navigationService.Navigate(new CreateMeetingView());
+                    break;
+                case "WeeklyScheduler":
+                    navigationService.Navigate(new WeeklySchedulerView());
+                    break;
+
             }
         }
     }

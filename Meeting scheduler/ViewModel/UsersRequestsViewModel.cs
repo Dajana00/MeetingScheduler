@@ -55,16 +55,12 @@ namespace MeetingScheduler.ViewModel
             }
         }
 
-
+                
         private List<Leave> GetAllLeaveRequests()
         {
             //List<MonthlyEventDto> monthlyEventDtos = new List<MonthlyEventDto>();
-            return _leaveService.GetAll();
-            /*foreach (Leave leave in leaves)
-            {
-                monthlyEventDtos.Add(CreateDto(leave));
-            }
-            return monthlyEventDtos;*/
+            return _leaveService.GetAllPending();
+            
 
         }
 
@@ -96,10 +92,16 @@ namespace MeetingScheduler.ViewModel
         private void ApproveRequest(Leave leave)
         {
             _leaveService.ApproveRequest(leave,App.LoggedUser);
+            RefreshRequests();
         }
         private void RejectRequest(Leave leave)
         {
             _leaveService.RejectRequest(leave, App.LoggedUser);
+            RefreshRequests();
+        }
+        private void RefreshRequests()
+        {
+            Requests = new ObservableCollection<Leave>(GetAllLeaveRequests());
         }
     }
 }

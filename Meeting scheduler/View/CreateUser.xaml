@@ -4,13 +4,44 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeetingScheduler.View"
+        xmlns:val="clr-namespace:MeetingScheduler.Validation"
         mc:Ignorable="d"
         Title="CreateUser" Height="700" Width="750" >
+    <Page.Resources>
+        <!--Validation error template-->
+        <ControlTemplate x:Key="ValidationErrorTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
 
             <TextBlock Text="First Name:" />
-            <TextBox Text="{Binding FirstName}" Width="200" Margin="0,5,0,5"/>
+            <TextBox x:Name="first" Width="200"
+                       Margin="0,0,0,15"  HorizontalAlignment="Center" TextAlignment="Center" FontSize="16">
+                <TextBox.Text>
+                    <Binding Path="FirstName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
 
             <TextBlock Text="Last Name:" />
             <TextBox Text="{Binding LastName}" Width="200" Margin="0,5,0,5"/>

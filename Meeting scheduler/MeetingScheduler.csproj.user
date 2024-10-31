@@ -16,7 +16,13 @@
     <Compile Update="View\CreateLeaveRequest.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\CreateMeetingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\CreateUser.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditProfileDataView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginView.xaml.cs">
@@ -25,7 +31,16 @@
     <Compile Update="View\MonthlyScheduler.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Proba.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserProfile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\UsersRequests.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\WeeklySchedulerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -42,13 +57,22 @@
     <Page Update="Themes\DataGridStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Themes\InputFieldTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AllUsersView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CreateLeaveRequest.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\CreateMeetingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\CreateUser.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditProfileDataView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">
@@ -57,7 +81,16 @@
     <Page Update="View\MonthlyScheduler.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\Proba.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserProfile.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\UsersRequests.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\WeeklySchedulerView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

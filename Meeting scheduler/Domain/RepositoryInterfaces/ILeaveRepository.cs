@@ -14,8 +14,12 @@ namespace MeetingScheduler.Domain.RepositoryInterfaces
         void Remove(Leave leave);
         void Update(Leave leave);
         List<Leave> GetAll();
-        List<Leave> GetEventsByDate(DateTime date);
-        List<Leave> GetEventsByDateForUser(DateTime date,int id);
+        List<Leave> GetAllApproved();
+        List<Leave> GetAllPending();
+        
+        List<Leave> GetByDate(DateTime date);
+        List<Leave> GetByUserId(int id);
+        List<Leave> GetByDateForUser(DateTime date,int id);
 
     }
 }

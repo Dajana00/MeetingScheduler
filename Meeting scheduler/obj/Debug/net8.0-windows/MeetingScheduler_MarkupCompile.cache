@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\User\Desktop\MeetingScheduler\obj\Debug\net8.0-windows\
+C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\obj\Debug\net8.0-windows\
 MeetingScheduler
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\User\Desktop\MeetingScheduler\App.xaml
-10-395401289
+C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\App.xaml
+16812421969
 
-441370395324
-246-712900814
-CustomControls\BindablePasswordBox.xaml;MainWindow.xaml;Themes\ButtonTheme.xaml;Themes\DataGridStyle.xaml;View\AllUsersView.xaml;View\CreateLeaveRequest.xaml;View\CreateUser.xaml;View\LoginView.xaml;View\MonthlyScheduler.xaml;View\UsersRequests.xaml;
+59314283348
+254-982079110
+CustomControls\BindablePasswordBox.xaml;MainWindow.xaml;Themes\ButtonTheme.xaml;Themes\DataGridStyle.xaml;Themes\InputFieldTheme.xaml;View\AllUsersView.xaml;View\CreateLeaveRequest.xaml;View\CreateMeetingView.xaml;View\CreateUser.xaml;View\EditProfileDataView.xaml;View\LoginView.xaml;View\MonthlyScheduler.xaml;View\Proba.xaml;View\UserProfile.xaml;View\UsersRequests.xaml;View\WeeklySchedulerView.xaml;
 
 False
 

@@ -13,6 +13,7 @@ namespace MeetingScheduler.Domain.RepositoryInterfaces
     {
          
         void Create(User entity);
+        void Update(User entity);
         void Edit(User entity);
         void Remove(User entity);
         bool Login(NetworkCredential credential);

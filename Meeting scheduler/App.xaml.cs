@@ -19,6 +19,8 @@ namespace MeetingScheduler
         protected void ApplicationStart(object s, StartupEventArgs e)
         {
             // Osigurajte da se Serilog inicijalizuje pri pokretanju aplikacije
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NDaF5cWWtCf1JpQnxbf1x0ZFNMYlxbRXZPMyBoS35RckRjWn5ednZVR2BeVkBw");
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)

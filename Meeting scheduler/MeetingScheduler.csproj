@@ -23,8 +23,4 @@
     <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="27.1.57" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Logs\" />
-  </ItemGroup>
-
 </Project>

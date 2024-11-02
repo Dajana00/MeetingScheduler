@@ -226,22 +226,22 @@ namespace MeetingScheduler.ViewModel
         {
 
             Leave leave;
+            DateTime endDate = new DateTime(EndDate.Year, EndDate.Month, EndDate.Day, 23, 59, 0);
 
             if (IsVacation)
             {
                 
-                leave = new Vacation(_userService.GetById(App.LoggedUser.Id),StartDate,EndDate,Status.PENDING,VacationType);
-                Vacation vacation = new Vacation();
+                leave = new Vacation(_userService.GetById(App.LoggedUser.Id),StartDate, endDate, Status.PENDING,VacationType);
 
             }
             else if (IsSickLeave)
             {
-                leave = new SickLeave(_userService.GetById(App.LoggedUser.Id), StartDate, EndDate, Status.PENDING, MedicalDocument); 
+                leave = new SickLeave(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING, MedicalDocument); 
                
             }
             else if (IsDayOff)
             {
-                leave = new DayOff(Reason, _userService.GetById(App.LoggedUser.Id), StartDate, EndDate, Status.PENDING);
+                leave = new DayOff(Reason, _userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING);
             }
             else if (IsSpecialEvent)
             {
@@ -249,7 +249,7 @@ namespace MeetingScheduler.ViewModel
             }
             else
             {
-                leave = new Leave(_userService.GetById(App.LoggedUser.Id), StartDate, EndDate, Status.PENDING);
+                leave = new Leave(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING);
                
             }
             StatusMessage = "Leave request submitted successfully!";
@@ -259,17 +259,19 @@ namespace MeetingScheduler.ViewModel
         private SpecialEvent CreateSpecialEvent()
         {
             SpecialEvent specialEvent = new SpecialEvent();
+            DateTime endDate = new DateTime(EndDate.Year, EndDate.Month, EndDate.Day, 23, 59, 0);
+
             if (IsStateSpecialEvent)
             {
-                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, EndDate, Status.PENDING, Domain.Model.SpecialEventType.STATE, SpecialEventName);
+                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING, Domain.Model.SpecialEventType.STATE, SpecialEventName);
             }
             if (IsNationalSpecialEvent)
             {
-                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, EndDate, Status.PENDING, Domain.Model.SpecialEventType.NATIONAL, SpecialEventName);
+                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING, Domain.Model.SpecialEventType.NATIONAL, SpecialEventName);
             }
             if (IsReligiousSpecialEvent)
             {
-                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, EndDate, Status.PENDING, Domain.Model.SpecialEventType.RELIGIOUS, SpecialEventName);
+                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING, Domain.Model.SpecialEventType.RELIGIOUS, SpecialEventName);
             }
             return specialEvent;
         }

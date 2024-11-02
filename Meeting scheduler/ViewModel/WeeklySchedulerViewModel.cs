@@ -5,12 +5,16 @@ using Syncfusion.UI.Xaml.Scheduler;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Brush = System.Windows.Media.Brush;
 
 namespace MeetingScheduler.ViewModel
 {
@@ -20,6 +24,7 @@ namespace MeetingScheduler.ViewModel
         private DateTime _currentWeekStart;
         private readonly LeaveService _leaveService;
         private readonly MeetingService _meetingService;
+        private readonly CalendarAppointmentService _appointmentService;
 
         public ObservableCollection<CustomScheduleAppointment> Appointments { get; set; }
         public ObservableCollection<Meeting> meetings { get; set; } 
@@ -27,10 +32,35 @@ namespace MeetingScheduler.ViewModel
         public bool IsAdmin { get; set; }
         public ICommand EditAppointmentCommand { get; }
         public ICommand DeleteAppointmentCommand { get; }
+
+        private Visibility _weeklyScheduleVisibility = Visibility.Visible;
+        private Visibility _monthlyScheduleVisibility = Visibility.Collapsed;
+
+        public Visibility WeeklyScheduleVisibility
+        {
+            get => _weeklyScheduleVisibility;
+            set
+            {
+                _weeklyScheduleVisibility = value;
+                OnPropertyChanged(nameof(WeeklyScheduleVisibility));
+            }
+        }
+
+        public Visibility MonthlyScheduleVisibility
+        {
+            get => _monthlyScheduleVisibility;
+            set
+            {
+                _monthlyScheduleVisibility = value;
+                OnPropertyChanged(nameof(MonthlyScheduleVisibility));
+            }
+        }
+
         public WeeklySchedulerViewModel()
         {
             _leaveService = new LeaveService();
             _meetingService = new MeetingService();
+            
 
             IsAdmin = App.LoggedUser.IsAdmin? true: false; 
 
@@ -49,14 +79,17 @@ namespace MeetingScheduler.ViewModel
                 leaves = new ObservableCollection<Leave>(GetAllApproved());
             }
 
-            //EditAppointmentCommand = new RelayCommand<ScheduleAppointment>(EditAppointment);
-            //DeleteAppointmentCommand = new RelayCommand<ScheduleAppointment>(DeleteAppointment);
+            EditAppointmentCommand = new RelayCommand<CustomScheduleAppointment>(EditAppointment);
+            DeleteAppointmentCommand = new RelayCommand<CustomScheduleAppointment>(DeleteAppointment);
 
-            // Preostala logika inicijalizacije
             LoadAppointments();
-          
+
+            _appointmentService = new CalendarAppointmentService(Appointments);
+            WeeklyCommand = new RelayCommand(ShowWeeklyView);
+            MonthlyCommand = new RelayCommand(ShowMonthlyView);
+
+
         }
-        // Metoda za učitavanje sastanaka
         private void LoadAppointments()
         {
             if (!IsAdmin)
@@ -90,24 +123,19 @@ namespace MeetingScheduler.ViewModel
             }
         }
 
+        private Brush GetLeaveColor(Leave leave)
+        {
+            return _leaveService.GetLeaveColor(leave);
+        }
+
         private string GetSubject(Leave leave)
         {
-            string subject;
-            subject = leave.User.FirstName + " " + leave.User.LastName + "\n"
-                + leave.StartDate + "-"
-                + leave.EndDate + "\n";
-            
-            return subject;
+            return _leaveService.GetSubject(leave);
         }
 
         private string GetMeetingSubject(Meeting meeting)
         {
-            string subject;
-            subject = meeting.Host.FirstName + " " + meeting.Host.LastName + "\n"
-                + meeting.StartTime + "-"
-                + meeting.EndTime + "\n";
-
-            return subject;
+            return _meetingService.GetSubject(meeting);
         }
         private void AddMeetingsInSchedule(ObservableCollection<Meeting> meetings)
         {
@@ -146,59 +174,27 @@ namespace MeetingScheduler.ViewModel
 
         private void EditAppointment(CustomScheduleAppointment appointment)
         {
-            if (appointment.EventType == "Meeting")
-            {
-                // Logika za uređivanje sastanka
-                var meeting = meetings.FirstOrDefault(m => m.StartTime == appointment.StartTime);
-                if (meeting != null)
-                {
-                    // Ažurirajte svojstva sastanka i sačuvajte
-                    meeting.StartTime = appointment.StartTime;
-                    meeting.EndTime = appointment.EndTime;
-                    //meeting.Subject = appointment.Subject;
-                    meeting.Location = appointment.Location;
-                    _meetingService.Update(meeting);
-                }
-            }
-            else if (appointment.EventType == "Leave")
-            {
-                // Logika za uređivanje godišnjeg odmora
-                var leave = leaves.FirstOrDefault(l => l.StartDate == appointment.StartTime);
-                if (leave != null)
-                {
-                    // Ažurirajte svojstva godišnjeg odmora i sačuvajte
-                    leave.StartDate = appointment.StartTime;
-                    leave.EndDate = appointment.EndTime;
-                    // Pretpostavljamo da imamo metodu za ažuriranje odmora
-                    _leaveService.Update(leave);
-                }
-            }
+            _appointmentService.EditAppointment(appointment,meetings,leaves);
         }
 
         private void DeleteAppointment(CustomScheduleAppointment appointment)
         {
-            if (appointment.EventType == "Meeting")
-            {
-                // Logika za brisanje sastanka
-                var meeting = meetings.FirstOrDefault(m => m.StartTime == appointment.StartTime);
-                if (meeting != null)
-                {
-                    _meetingService.Delete(meeting.Id);
-                    meetings.Remove(meeting);
-                    Appointments.Remove(appointment);
-                }
-            }
-            else if (appointment.EventType == "Leave")
-            {
-                // Logika za brisanje godišnjeg odmora
-                var leave = leaves.FirstOrDefault(l => l.StartDate == appointment.StartTime);
-                if (leave != null)
-                {
-                    _leaveService.Remove(leave);
-                    leaves.Remove(leave);
-                    Appointments.Remove(appointment);
-                }
-            }
+            _appointmentService.DeleteAppointment(appointment, meetings, leaves);
+        }
+        public ICommand WeeklyCommand { get; }
+        public ICommand MonthlyCommand { get; }
+
+     
+        private void ShowWeeklyView()
+        {
+            WeeklyScheduleVisibility = Visibility.Visible;
+            MonthlyScheduleVisibility = Visibility.Collapsed;
+        }
+
+        private void ShowMonthlyView()
+        {
+            WeeklyScheduleVisibility = Visibility.Collapsed;
+            MonthlyScheduleVisibility = Visibility.Visible;
         }
 
 

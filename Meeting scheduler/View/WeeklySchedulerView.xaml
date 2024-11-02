@@ -3,44 +3,76 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:MeetingScheduler.View" xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Scheduler;assembly=Syncfusion.SfScheduler.WPF"
+      xmlns:local="clr-namespace:MeetingScheduler.View"
+      xmlns:utility="clr-namespace:MeetingScheduler.Utilities"
+      xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Scheduler;assembly=Syncfusion.SfScheduler.WPF"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="750"
       Title="WeeklySchedulerView">
 
 
     <Page.Resources>
-        <DataTemplate x:Key="appointmentTemplate">
-            <StackPanel Background="{Binding Data.Background}"  
-                        VerticalAlignment="Stretch" 
-                        HorizontalAlignment="Stretch"
-                        Orientation="Horizontal">
-                
-                <TextBlock Margin="5"
-                               VerticalAlignment="Center"
-                               Text="{Binding Data.EventType}" 
-                               TextTrimming="CharacterEllipsis"
-                               TextWrapping="Wrap"
-                               TextAlignment="Left"
-                               FontWeight="Bold"/>
-            </StackPanel>
-        </DataTemplate>
-    </Page.Resources>
-
-    <syncfusion:SfScheduler x:Name="Schedule" ViewType="Week" ItemsSource="{Binding Appointments}" >
-
-        <syncfusion:SfScheduler.AppointmentContextMenu>
-            <ContextMenu>
-                <MenuItem Command="{Binding Source={x:Static Member=syncfusion:SchedulerCommands.Edit}}"
-                    CommandParameter ="{Binding}" CommandTarget="{Binding ElementName=Schedule}"
-                    Header="Edit">
-                </MenuItem>
-                <MenuItem Command="{Binding Source={x:Static Member=syncfusion:SchedulerCommands.Delete}}"
-                    CommandParameter ="{Binding}"
-                    Header="Delete">
-                </MenuItem>
-            </ContextMenu>
-        </syncfusion:SfScheduler.AppointmentContextMenu>
+       
         
-    </syncfusion:SfScheduler>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal">
+            <Button Command="{Binding MonthlyCommand}" 
+                    Style="{StaticResource ButtonTheme}"
+                    Content="Monthly"
+                    />
+            <Button Command="{Binding WeeklyCommand}" 
+                    Content="Weekly"
+                    Style="{StaticResource ButtonTheme}"/>
+        </StackPanel>
+        
+        
+        <syncfusion:SfScheduler x:Name="Schedule" ViewType="Week" EnableToolTip="True"
+                        ItemsSource="{Binding Appointments}"
+                        Grid.Column="1" Grid.Row="1" 
+                        Visibility="{Binding WeeklyScheduleVisibility}"
+                        DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}">
+            <syncfusion:SfScheduler.AppointmentContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{x:Static syncfusion:SchedulerCommands.Edit}"
+                      CommandParameter="{Binding}"
+                      CommandTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type syncfusion:SfScheduler}}}"
+                      Header="Edit" />
+                    <MenuItem Command="{x:Static syncfusion:SchedulerCommands.Delete}"
+                      CommandParameter="{Binding}"
+                      CommandTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type syncfusion:SfScheduler}}}"
+                      Header="Delete" />
+
+                </ContextMenu>
+            </syncfusion:SfScheduler.AppointmentContextMenu>
+        </syncfusion:SfScheduler>
+
+        <syncfusion:SfScheduler x:Name="Schedulee" ViewType="Month" EnableToolTip="True"
+                 ItemsSource="{Binding Appointments}"
+                 Grid.Column="1" Grid.Row="1" 
+                 Visibility="{Binding MonthlyScheduleVisibility}"
+                 DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}">
+            <syncfusion:SfScheduler.AppointmentContextMenu>
+                <ContextMenu>
+                    <MenuItem Command="{x:Static syncfusion:SchedulerCommands.Edit}"
+                           CommandParameter="{Binding}"
+                           CommandTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type syncfusion:SfScheduler}}}"
+                           Header="Edit" />
+                    <MenuItem Command="{x:Static syncfusion:SchedulerCommands.Delete}"
+                           CommandParameter="{Binding}"
+                           CommandTarget="{Binding RelativeSource={RelativeSource AncestorType={x:Type syncfusion:SfScheduler}}}"
+                           Header="Delete" />
+
+                </ContextMenu>
+            </syncfusion:SfScheduler.AppointmentContextMenu>
+        </syncfusion:SfScheduler>
+    </Grid>
 </Page>

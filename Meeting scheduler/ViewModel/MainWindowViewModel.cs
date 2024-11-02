@@ -72,9 +72,9 @@ namespace MeetingScheduler.ViewModel
                     navigationService.Navigate(new UsersRequestsView());
                     break;
                 case "Profile":
-                    EditProfileDataView window = new EditProfileDataView(App.LoggedUser);
-                    window.Show();
-                    //navigationService.Navigate(new EditProfileDataView(App.LoggedUser));
+                    //EditProfileDataView window = new EditProfileDataView(App.LoggedUser);
+                    //window.Show();
+                    navigationService.Navigate(new UserProfile(App.LoggedUser));
                     break;
                 case "NewMeeting":
                     navigationService.Navigate(new CreateMeetingView());

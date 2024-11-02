@@ -39,6 +39,7 @@
                 VerticalAlignment="Top"
                 Style="{StaticResource ButtonTheme}"
                 Margin="03,48,50,50"
+                Visibility="{Binding RequestsButtonVisibility}"
                 Command="{Binding NavigationCommand}" CommandParameter="Requests" />
 
             <Button Content="Calendar"

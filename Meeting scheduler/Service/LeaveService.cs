@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace MeetingScheduler.Service
 {
@@ -68,7 +69,33 @@ namespace MeetingScheduler.Service
             _leaveRepository.Save();
         }
 
-
+        public Brush GetLeaveColor(Leave leave)
+        {
+            return leave switch
+            {
+                SickLeave sickLeave => sickLeave.Color,
+                DayOff dayOff => dayOff.Color,
+                Vacation vacation => vacation.Color,
+                SpecialEvent specialEvent => specialEvent.Color,
+                _ => leave.Color
+            };
+        }
+        public string GetSubject(Leave leave)
+        {
+            string subject;
+            subject = leave.User.FirstName + " " + leave.User.LastName + "\n"
+                + leave.StartDate.Hour + ":" + leave.StartDate.Minute + "-"
+                + leave.EndDate.Hour + ":" + leave.EndDate.Minute + "\n";
+            subject += leave switch
+            {
+                SickLeave => "Sick Leave",
+                DayOff => "Day Off",
+                Vacation => "Vacation",
+                SpecialEvent specialEvent => specialEvent.Name,
+                _ => "General Leave"
+            };
+            return subject;
+        }
 
     }
 }

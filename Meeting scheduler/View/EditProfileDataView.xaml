@@ -25,16 +25,13 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!-- Naslov sa linijom ispod -->
                 <StackPanel Grid.Row="0" Margin="0,0,0,20">
                     <TextBlock Text="Edit User Profile" FontSize="24" FontWeight="Bold" Foreground="#333333"/>
                     <Rectangle Height="2" Fill="#007ACC" Width="200" HorizontalAlignment="Left" Margin="0,5,0,0"/>
                 </StackPanel>
 
-                <!-- Glavni okvir za uređivanje podataka o korisniku -->
                 <Border Grid.Row="1"  CornerRadius="10">
                 <StackPanel>
-                    <!-- Polja za unos korisničkih podataka -->
                         <StackPanel>
                             <TextBlock Text="First Name:" FontWeight="Bold" Foreground="#007ACC"/>
                             <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" FontSize="16" Margin="0,5,0,10"/>

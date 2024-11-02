@@ -1,3 +1,0 @@
-2024-10-31 14:35:45.956 +01:00 [INF] User login try: daks
-2024-10-31 14:35:46.939 +01:00 [INF] User successifully logged in
-2024-10-31 14:38:11.000 +01:00 [INF] Application started.

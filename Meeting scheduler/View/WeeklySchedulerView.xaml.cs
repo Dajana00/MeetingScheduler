@@ -1,4 +1,6 @@
-﻿using MeetingScheduler.ViewModel;
+﻿using MeetingScheduler.Dto;
+using MeetingScheduler.Service;
+using MeetingScheduler.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +23,14 @@ namespace MeetingScheduler.View
     /// </summary>
     public partial class WeeklySchedulerView : Page
     {
+
+        private readonly CalendarAppointmentService calendarAppointmentService;
         public WeeklySchedulerView()
         {
             InitializeComponent();
             this.DataContext = new WeeklySchedulerViewModel();
         }
+      
+
     }
 }

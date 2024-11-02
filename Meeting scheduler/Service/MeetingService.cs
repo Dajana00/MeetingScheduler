@@ -37,5 +37,15 @@ namespace MeetingScheduler.Service
         {
             return _meetingRepository.GetByUserId(id);
         }
+        public string GetSubject(Meeting meeting)
+        {
+            string subject;
+            subject = meeting.Host.FirstName + " " + meeting.Host.LastName + "\n" + "\n"
+                 + meeting.StartTime.Hour + ":" + meeting.StartTime.Minute + "-"
+                + meeting.EndTime.Hour + ":" + meeting.EndTime.Minute + "\n" + "\n"
+                + "Location: " + meeting.Location;
+
+            return subject;
+        }
     }
 }

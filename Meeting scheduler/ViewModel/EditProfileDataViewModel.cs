@@ -64,7 +64,15 @@ namespace MeetingScheduler.ViewModel
                 OnPropertyChanged(nameof(PhoneNumber));
             }
         }
-
+        public string Email
+        {
+            get => _user.Email;
+            set
+            {
+                _user.Email = value;
+                OnPropertyChanged(nameof(Email));
+            }
+        }
 
         private void SaveChanges()
         {

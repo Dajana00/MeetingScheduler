@@ -1,4 +1,5 @@
 ﻿using MeetingScheduler.Domain.Model;
+using MeetingScheduler.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace MeetingScheduler.View
         public UserProfile(User user)
         {
             InitializeComponent();
-            this.DataContext = user;
+            this.DataContext = new UserProfileViewModel(user);
         }
 
         

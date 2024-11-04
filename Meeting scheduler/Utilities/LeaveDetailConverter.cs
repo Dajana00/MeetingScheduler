@@ -21,8 +21,6 @@ namespace MeetingScheduler.Utilities
                         return $"{sickLeave.MedicalCertificate}";
                     case DayOff dayOff:
                         return $"{dayOff.Reason}"; 
-                    case SpecialEvent specialEvent:
-                        return $"{specialEvent.Name}"; 
                     default:
                         return "General Leave"; 
                 }

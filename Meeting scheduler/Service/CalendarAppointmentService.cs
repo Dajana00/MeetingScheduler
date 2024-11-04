@@ -25,7 +25,7 @@ namespace MeetingScheduler.Service
 
         public void EditAppointment(CustomScheduleAppointment appointment,ObservableCollection<Meeting> meetings, ObservableCollection<Leave> leaves)
         {
-            if (appointment.EventType == "Meeting")
+           /* if (appointment.EventType == "Meeting")
             {
                 var meeting = meetings.FirstOrDefault(m => m.StartTime == appointment.StartTime && m.EndTime == appointment.EndTime && m.Location == appointment.Location);
                 if (meeting != null)
@@ -35,9 +35,9 @@ namespace MeetingScheduler.Service
                     meeting.Location = appointment.Location;
                     _meetingService.Update(meeting);
                 }
-            }
-            else if (appointment.EventType == "Leave")
-            {
+            }*/
+            //else if (appointment.EventType == "Leave")
+            //{
                 var leave = leaves.FirstOrDefault(l => l.StartDate == appointment.StartTime && l.EndDate == appointment.EndTime);
                 if (leave != null)
                 {
@@ -45,7 +45,7 @@ namespace MeetingScheduler.Service
                     leave.EndDate = appointment.EndTime;
                     _leaveService.Update(leave);
                 }
-            }
+           // }
         }
 
 

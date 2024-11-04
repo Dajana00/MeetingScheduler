@@ -96,6 +96,36 @@ namespace MeetingScheduler.Migrations
                     b.ToTable("Meetings", (string)null);
                 });
 
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.SpecialEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ColorHex")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EventType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SpecialEvents", (string)null);
+                });
+
             modelBuilder.Entity("MeetingScheduler.Domain.Model.User", b =>
                 {
                     b.Property<int>("Id")
@@ -163,20 +193,6 @@ namespace MeetingScheduler.Migrations
                     b.ToTable("SickLeaves", (string)null);
                 });
 
-            modelBuilder.Entity("MeetingScheduler.Domain.Model.SpecialEvent", b =>
-                {
-                    b.HasBaseType("MeetingScheduler.Domain.Model.Leave");
-
-                    b.Property<int>("EventType")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("SpecialEvents", (string)null);
-                });
-
             modelBuilder.Entity("MeetingScheduler.Domain.Model.Vacation", b =>
                 {
                     b.HasBaseType("MeetingScheduler.Domain.Model.Leave");
@@ -231,15 +247,6 @@ namespace MeetingScheduler.Migrations
                     b.HasOne("MeetingScheduler.Domain.Model.Leave", null)
                         .WithOne()
                         .HasForeignKey("MeetingScheduler.Domain.Model.SickLeave", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MeetingScheduler.Domain.Model.SpecialEvent", b =>
-                {
-                    b.HasOne("MeetingScheduler.Domain.Model.Leave", null)
-                        .WithOne()
-                        .HasForeignKey("MeetingScheduler.Domain.Model.SpecialEvent", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

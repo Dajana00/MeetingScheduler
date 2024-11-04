@@ -25,12 +25,25 @@ namespace MeetingScheduler.View
     {
 
         private readonly CalendarAppointmentService calendarAppointmentService;
+        WeeklySchedulerViewModel viewModel = new WeeklySchedulerViewModel();
         public WeeklySchedulerView()
         {
             InitializeComponent();
-            this.DataContext = new WeeklySchedulerViewModel();
+            this.DataContext =viewModel;
+            calendarAppointmentService = new CalendarAppointmentService(viewModel.Appointments);
         }
-      
 
+        private void Schedule_AppointmentEditorClosing(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentEditorClosingEventArgs e)
+        {
+            if (e.Action == Syncfusion.UI.Xaml.Scheduler.AppointmentEditorAction.Edit)
+            {
+                CustomScheduleAppointment appointment = new CustomScheduleAppointment();
+                appointment.StartTime = e.Appointment.StartTime;
+                Console.WriteLine(appointment);
+                if(appointment != null) {   
+                calendarAppointmentService.EditAppointment(appointment,viewModel._meetings,viewModel._leaves);
+               }
+            }
+        }
     }
 }

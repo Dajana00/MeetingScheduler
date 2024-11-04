@@ -185,15 +185,13 @@ namespace MeetingScheduler.ViewModel
                     SickLeave => "Sick Leave",
                     DayOff => "Day Off",
                     Vacation => "Vacation",
-                    SpecialEvent => "Special event",
                     _ => "Other"
                 },
                 Description = leave switch
                 {
                     Vacation vacation => vacation.Type,
                     DayOff dayOff => dayOff.Reason,
-                    SickLeave sickLeave => sickLeave.MedicalCertificate,
-                    SpecialEvent specialEvent => specialEvent.EventType.ToString() + ", "+ specialEvent.Name
+                    SickLeave sickLeave => sickLeave.MedicalCertificate
                 }
 
             };

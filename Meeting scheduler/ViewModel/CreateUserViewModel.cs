@@ -35,7 +35,6 @@ namespace MeetingScheduler.ViewModel
 
             }
         }
-
         public string LastName
         {
             get => _lastName;
@@ -74,8 +73,6 @@ namespace MeetingScheduler.ViewModel
             CreateUserCommand = new RelayCommand(CreateUser, CanCreateUser);
         }
 
-
-
         private bool CanCreateUser()
         {
             return !string.IsNullOrEmpty(FirstName) &&
@@ -91,6 +88,7 @@ namespace MeetingScheduler.ViewModel
             try
             {
                 _userService.Create(newUser);
+
             }
             catch (Exception ex)
             {

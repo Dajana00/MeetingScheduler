@@ -1,6 +1,7 @@
 ﻿using MeetingScheduler.Domain.Model;
 using MeetingScheduler.Dto;
 using MeetingScheduler.Service;
+using MeetingScheduler.View;
 using Syncfusion.UI.Xaml.Scheduler;
 using System;
 using System.Collections.Generic;
@@ -25,10 +26,13 @@ namespace MeetingScheduler.ViewModel
         private readonly LeaveService _leaveService;
         private readonly MeetingService _meetingService;
         private readonly CalendarAppointmentService _appointmentService;
+        private readonly SpecialEventService _specialEventService;
+
 
         public ObservableCollection<CustomScheduleAppointment> Appointments { get; set; }
-        public ObservableCollection<Meeting> meetings { get; set; } 
-        public ObservableCollection<Leave> leaves { get; set; }
+        public ObservableCollection<Meeting> _meetings { get; set; } 
+        public ObservableCollection<Leave> _leaves { get; set; }
+        public ObservableCollection<SpecialEvent> _specialEvents { get; set; }
         public bool IsAdmin { get; set; }
         public ICommand EditAppointmentCommand { get; }
         public ICommand DeleteAppointmentCommand { get; }
@@ -55,12 +59,24 @@ namespace MeetingScheduler.ViewModel
                 OnPropertyChanged(nameof(MonthlyScheduleVisibility));
             }
         }
+        private bool _isWeeklyView = true;
+        public bool IsWeeklyView
+        {
+            get => _isWeeklyView;
+            set
+            {
+                _isWeeklyView = value;
+                OnPropertyChanged(nameof(IsWeeklyView));
+                LoadAppointments();
+            }
+        }
 
         public WeeklySchedulerViewModel()
         {
             _leaveService = new LeaveService();
             _meetingService = new MeetingService();
-            
+            _specialEventService = new SpecialEventService();
+
 
             IsAdmin = App.LoggedUser.IsAdmin? true: false; 
 
@@ -70,42 +86,53 @@ namespace MeetingScheduler.ViewModel
             if (!IsAdmin)
             {
                 var currentUserId = App.LoggedUser.Id;
-                meetings = new ObservableCollection<Meeting>(GetUserMeetings(currentUserId));
-                leaves = new ObservableCollection<Leave>(GetUserLeaves(currentUserId));
+                _meetings = new ObservableCollection<Meeting>(GetUserMeetings(currentUserId));
+                _leaves = new ObservableCollection<Leave>(GetUserLeaves(currentUserId));
+                
             }
             else
             {
-                meetings = new ObservableCollection<Meeting>(GetAll());
-                leaves = new ObservableCollection<Leave>(GetAllApproved());
+                _meetings = new ObservableCollection<Meeting>(GetAll());
+                _leaves = new ObservableCollection<Leave>(GetAllApproved());
             }
-
-            EditAppointmentCommand = new RelayCommand<CustomScheduleAppointment>(EditAppointment);
-            DeleteAppointmentCommand = new RelayCommand<CustomScheduleAppointment>(DeleteAppointment);
-
+            _specialEvents = new ObservableCollection<SpecialEvent>(GetAllSpecialEvents());
+          
             LoadAppointments();
 
             _appointmentService = new CalendarAppointmentService(Appointments);
             WeeklyCommand = new RelayCommand(ShowWeeklyView);
             MonthlyCommand = new RelayCommand(ShowMonthlyView);
+            EditWeeklyEventCommand = new RelayCommand<CustomScheduleAppointment>(EditApp);
 
 
         }
+        private void EditApp(CustomScheduleAppointment appointment)
+        {
+            EditEvent edit = new EditEvent(appointment);
+            edit.Show();
+        }
         private void LoadAppointments()
         {
+            Appointments.Clear();
+
             if (!IsAdmin)
             {
                 var currentUserId = App.LoggedUser.Id;
-                meetings = new ObservableCollection<Meeting>(GetUserMeetings(currentUserId));
-                leaves = new ObservableCollection<Leave>(GetUserLeaves(currentUserId));
+                _meetings = new ObservableCollection<Meeting>(GetUserMeetings(currentUserId));
+                _leaves = new ObservableCollection<Leave>(GetUserLeaves(currentUserId));
             }
             else
             {
-                meetings = new ObservableCollection<Meeting>(GetAll());
-                leaves = new ObservableCollection<Leave>(GetAllApproved());
+                _meetings = new ObservableCollection<Meeting>(GetAll());
+                _leaves = new ObservableCollection<Leave>(GetAllApproved());
             }
 
-            AddLeavesInSchedule(leaves);
-            AddMeetingsInSchedule(meetings);
+            AddLeavesInSchedule(_leaves);
+            AddSpecialEventsInSchedule(_specialEvents);
+            if (IsWeeklyView)
+            {
+                AddMeetingsInSchedule(_meetings);
+            }
         }
 
         private void AddLeavesInSchedule(ObservableCollection<Leave> leaves)
@@ -122,6 +149,21 @@ namespace MeetingScheduler.ViewModel
                 });
             }
         }
+        private void AddSpecialEventsInSchedule(ObservableCollection<SpecialEvent> specialEvents)
+        {
+            foreach (var specialEvent in specialEvents)
+            {
+                Appointments.Add(new CustomScheduleAppointment()
+                {
+                    StartTime = specialEvent.StartDate,
+                    EndTime = specialEvent.EndDate,
+                    Subject = specialEvent.Name,
+                    AppointmentBackground = specialEvent.Color,
+                    EventType = "Special event"
+                });
+            }
+        }
+
 
         private Brush GetLeaveColor(Leave leave)
         {
@@ -153,6 +195,10 @@ namespace MeetingScheduler.ViewModel
             }
         }
 
+        private List<SpecialEvent> GetAllSpecialEvents()
+        {
+            return _specialEventService.GetAll();
+        }
         private List<Leave> GetUserLeaves(int id)
         {
             return _leaveService.GetByUserId(id);
@@ -172,15 +218,7 @@ namespace MeetingScheduler.ViewModel
 
 
 
-        private void EditAppointment(CustomScheduleAppointment appointment)
-        {
-            _appointmentService.EditAppointment(appointment,meetings,leaves);
-        }
-
-        private void DeleteAppointment(CustomScheduleAppointment appointment)
-        {
-            _appointmentService.DeleteAppointment(appointment, meetings, leaves);
-        }
+        
         public ICommand WeeklyCommand { get; }
         public ICommand MonthlyCommand { get; }
 
@@ -189,13 +227,20 @@ namespace MeetingScheduler.ViewModel
         {
             WeeklyScheduleVisibility = Visibility.Visible;
             MonthlyScheduleVisibility = Visibility.Collapsed;
+            IsWeeklyView = true;
         }
 
         private void ShowMonthlyView()
         {
+            IsWeeklyView = false;
             WeeklyScheduleVisibility = Visibility.Collapsed;
             MonthlyScheduleVisibility = Visibility.Visible;
         }
+        public ICommand EditWeeklyEventCommand { get; }
+        public ICommand DeleteWeeklyEventCommand { get;  }
+
+
+
 
 
     }

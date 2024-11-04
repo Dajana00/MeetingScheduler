@@ -1,0 +1,5 @@
+2024-11-04 09:37:21.722 +01:00 [INF] User login try: nna
+2024-11-04 09:37:23.109 +01:00 [WRN] Error while user login: nna
+2024-11-04 09:37:29.388 +01:00 [INF] User login try: nina
+2024-11-04 09:37:29.501 +01:00 [INF] User successifully logged in
+2024-11-04 10:39:46.051 +01:00 [INF] Application started.

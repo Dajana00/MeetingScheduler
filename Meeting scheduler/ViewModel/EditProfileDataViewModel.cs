@@ -51,7 +51,7 @@ namespace MeetingScheduler.ViewModel
             get => _user.Username;
             set
             {
-                _user.LastName = value;
+                _user.Username = value;
                 OnPropertyChanged(nameof(Username));
             }
         }

@@ -243,10 +243,7 @@ namespace MeetingScheduler.ViewModel
             {
                 leave = new DayOff(Reason, _userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING);
             }
-            else if (IsSpecialEvent)
-            {
-                leave = CreateSpecialEvent();
-            }
+           
             else
             {
                 leave = new Leave(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING);
@@ -254,9 +251,10 @@ namespace MeetingScheduler.ViewModel
             }
             StatusMessage = "Leave request submitted successfully!";
             _leaveService.Create(leave);
+
         }
 
-        private SpecialEvent CreateSpecialEvent()
+       /* private SpecialEvent CreateSpecialEvent()
         {
             SpecialEvent specialEvent = new SpecialEvent();
             DateTime endDate = new DateTime(EndDate.Year, EndDate.Month, EndDate.Day, 23, 59, 0);
@@ -275,7 +273,7 @@ namespace MeetingScheduler.ViewModel
             }
             return specialEvent;
         }
-
+       */
 
     }
 }

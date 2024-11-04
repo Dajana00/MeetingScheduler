@@ -99,15 +99,13 @@ namespace MeetingScheduler.ViewModel
                     SickLeave => "Sick Leave",
                     DayOff => "Day Off",
                     Vacation => "Vacation",
-                    SpecialEvent => "SpecialEvent",
                     _ => "Other"
                 },
                 Description = leave switch
                 {
                     Vacation vacation => vacation.Type,
                     DayOff dayOff => dayOff.Reason,
-                    SickLeave sickLeave => sickLeave.MedicalCertificate,
-                    SpecialEvent specialEvent => specialEvent.Name
+                    SickLeave sickLeave => sickLeave.MedicalCertificate
                 }
 
             };

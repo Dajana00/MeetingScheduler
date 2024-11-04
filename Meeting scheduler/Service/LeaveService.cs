@@ -76,7 +76,6 @@ namespace MeetingScheduler.Service
                 SickLeave sickLeave => sickLeave.Color,
                 DayOff dayOff => dayOff.Color,
                 Vacation vacation => vacation.Color,
-                SpecialEvent specialEvent => specialEvent.Color,
                 _ => leave.Color
             };
         }
@@ -91,7 +90,6 @@ namespace MeetingScheduler.Service
                 SickLeave => "Sick Leave",
                 DayOff => "Day Off",
                 Vacation => "Vacation",
-                SpecialEvent specialEvent => specialEvent.Name,
                 _ => "General Leave"
             };
             return subject;

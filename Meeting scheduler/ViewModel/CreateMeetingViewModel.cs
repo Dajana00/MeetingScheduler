@@ -1,4 +1,5 @@
-﻿using MeetingScheduler.Domain.Model;
+﻿using MeetingScheduler.Domain;
+using MeetingScheduler.Domain.Model;
 using MeetingScheduler.Service;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Navigation;
+using NavigationService = MeetingScheduler.Service.NavigationService;
 
 namespace MeetingScheduler.ViewModel
 {
@@ -17,7 +20,7 @@ namespace MeetingScheduler.ViewModel
         private readonly UserService _userService;
         public ObservableCollection<User> AllUsers { get; set; }
         private ObservableCollection<User> _selectedParticipants = new ObservableCollection<User>();
-
+        private readonly INavigationService _navigationService;
 
         public CreateMeetingViewModel()
         {
@@ -150,7 +153,6 @@ namespace MeetingScheduler.ViewModel
             }
         }
 
-        // Metode za ažuriranje kompletnog datuma i vremena
         private void UpdateStartDateTime()
         {
             StartDate = new DateTime(StartDate.Year, StartDate.Month, StartDate.Day, StartHour, StartMinute, 0);

@@ -20,8 +20,7 @@ namespace MeetingScheduler.Utilities
                     SickLeave => "Sick Leave",
                     DayOff => "Day Off",
                     Vacation => "Vacation",
-                    SpecialEvent => "Special Event",
-                    _ => "General Leave" // ili neki drugi default tekst
+                    _ => "General Leave" 
                 };
             }
             return "Unknown"; // Ako vrednost nije tip Leave

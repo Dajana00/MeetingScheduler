@@ -10,6 +10,9 @@
     <Compile Update="CustomControls\BindablePasswordBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\CreateSpecialEventView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AllUsersView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -20,6 +23,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\CreateUserView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditEvent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\EditProfileDataView.xaml.cs">
@@ -57,6 +63,9 @@
     <Page Update="Themes\InputFieldTheme.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\CreateSpecialEventView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AllUsersView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -67,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\CreateUserView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditEvent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\EditProfileDataView.xaml">

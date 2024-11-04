@@ -18,11 +18,11 @@
         <DataGrid ItemsSource="{Binding Requests}"  CanUserAddRows="False"
                   AutoGenerateColumns="False" Margin="10" Style="{StaticResource DataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="First Name" Binding="{Binding User.FirstName}" Width="120" />
-                <DataGridTextColumn Header="Last Name" Binding="{Binding User.LastName}"  Width="120" />
-                <DataGridTextColumn Header="Start" Binding="{Binding StartDate , StringFormat='{}{0:dd.MM.yyyy}'}"  Width="130"/>
-                <DataGridTextColumn Header="End" Binding="{Binding EndDate, StringFormat='{}{0:dd.MM.yyyy}'}"  Width="130" />
-                <DataGridTemplateColumn Header="Leave Type" Width="130">
+                <DataGridTextColumn Header="First Name" Binding="{Binding User.FirstName}" Width="110" />
+                <DataGridTextColumn Header="Last Name" Binding="{Binding User.LastName}"  Width="110" />
+                <DataGridTextColumn Header="Start" Binding="{Binding StartDate , StringFormat='{}{0:dd.MM.yyyy}'}"  Width="110"/>
+                <DataGridTextColumn Header="End" Binding="{Binding EndDate, StringFormat='{}{0:dd.MM.yyyy}'}"  Width="110" />
+                <DataGridTemplateColumn Header="Leave Type" Width="110">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Converter={StaticResource LeaveTypeConverter}}" />
@@ -31,14 +31,14 @@
                 </DataGridTemplateColumn>
 
 
-                <DataGridTemplateColumn Header="Leave Details" Width="150">
+                <DataGridTemplateColumn Header="Leave Details" Width="110">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Converter={StaticResource LeaveDetailConverter}}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Approve"  Width="130">
+                <DataGridTemplateColumn Header="Approve"  Width="110">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Approve" Command="{Binding DataContext.ApproveCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
@@ -47,7 +47,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn Header="Reject" Width="130">
+                <DataGridTemplateColumn Header="Reject" Width="110">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="Reject" Command="{Binding DataContext.RejectCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"

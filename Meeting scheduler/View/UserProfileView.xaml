@@ -35,19 +35,19 @@
                     <!-- Podaci korisnika -->
                     <StackPanel>
                         <TextBlock Text="First Name:" FontWeight="Bold" Foreground="#007ACC"/>
-                        <TextBlock Text="{Binding FirstName}" FontSize="16" Margin="0,0,0,10" />
+                        <TextBlock Text="{Binding User.FirstName}" FontSize="16" Margin="0,0,0,10" />
 
                         <TextBlock Text="Last Name:" FontWeight="Bold" Foreground="#007ACC"/>
-                        <TextBlock Text="{Binding LastName}" FontSize="16" Margin="0,0,0,10" />
+                        <TextBlock Text="{Binding User.LastName}" FontSize="16" Margin="0,0,0,10" />
 
                         <TextBlock Text="Username:" FontWeight="Bold" Foreground="#007ACC"/>
-                        <TextBlock Text="{Binding Username}" FontSize="16" Margin="0,0,0,10" />
+                        <TextBlock Text="{Binding User.Username}" FontSize="16" Margin="0,0,0,10" />
 
                         <TextBlock Text="Email:" FontWeight="Bold" Foreground="#007ACC"/>
-                        <TextBlock Text="{Binding Email}" FontSize="16" Margin="0,0,0,10" />
+                        <TextBlock Text="{Binding User.Email}" FontSize="16" Margin="0,0,0,10" />
 
                         <TextBlock Text="Phone Number:" FontWeight="Bold" Foreground="#007ACC"/>
-                        <TextBlock Text="{Binding PhoneNumber}" FontSize="16" Margin="0,0,0,10" />
+                        <TextBlock Text="{Binding User.PhoneNumber}" FontSize="16" Margin="0,0,0,10" />
 
                         <Button Content="Edit profile" Style="{StaticResource ButtonTheme}"
                                 Command="{Binding EditProfileCommand}"

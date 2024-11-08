@@ -25,10 +25,7 @@ namespace MeetingScheduler.ViewModel
         private DateTime _currentWeekStart;
         private readonly LeaveService _leaveService;
         private readonly MeetingService _meetingService;
-        private readonly CalendarAppointmentService _appointmentService;
         private readonly SpecialEventService _specialEventService;
-
-
         public ObservableCollection<CustomScheduleAppointment> Appointments { get; set; }
         public ObservableCollection<Meeting> _meetings { get; set; } 
         public ObservableCollection<Leave> _leaves { get; set; }
@@ -99,18 +96,12 @@ namespace MeetingScheduler.ViewModel
           
             LoadAppointments();
 
-            _appointmentService = new CalendarAppointmentService(Appointments);
             WeeklyCommand = new RelayCommand(ShowWeeklyView);
             MonthlyCommand = new RelayCommand(ShowMonthlyView);
-            EditWeeklyEventCommand = new RelayCommand<CustomScheduleAppointment>(EditApp);
 
 
         }
-        private void EditApp(CustomScheduleAppointment appointment)
-        {
-            EditEvent edit = new EditEvent(appointment);
-            edit.Show();
-        }
+      
         private void LoadAppointments()
         {
             Appointments.Clear();
@@ -145,7 +136,9 @@ namespace MeetingScheduler.ViewModel
                     EndTime = leave.EndDate,
                     Subject = GetSubject(leave),
                     AppointmentBackground = leave.Color,
-                    EventType = "Leave"  
+                    Location = leave.User.Id.ToString(),
+                    Id = leave.Id,
+                    Notes = "Leave"
                 });
             }
         }
@@ -159,10 +152,13 @@ namespace MeetingScheduler.ViewModel
                     EndTime = specialEvent.EndDate,
                     Subject = specialEvent.Name,
                     AppointmentBackground = specialEvent.Color,
-                    EventType = "Special event"
+                    Id = specialEvent.Id,   
+                    Notes = "SpecialEvent"
+
                 });
             }
         }
+
 
 
         private Brush GetLeaveColor(Leave leave)
@@ -190,7 +186,8 @@ namespace MeetingScheduler.ViewModel
                     Subject = GetMeetingSubject(meeting),
                     Location = meeting.Location,
                     AppointmentBackground = new SolidColorBrush(Colors.Purple),
-                    EventType = "Meeting"
+                    Notes = "Meeting",
+                    Id= meeting.Id  
                 });
             }
         }

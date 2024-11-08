@@ -28,8 +28,8 @@ namespace MeetingScheduler
             ConfigureServices(serviceCollection);
 
             ServiceProvider = serviceCollection.BuildServiceProvider();
-            // Osigurajte da se Serilog inicijalizuje pri pokretanju aplikacije
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NDaF5cWWtCf1JpQnxbf1x0ZFNMYlxbRXZPMyBoS35RckRjWn5ednZVR2BeVkBw");
+            //privremena licenca za koriscenje 
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(" "); //dodati
 
 
             Log.Logger = new LoggerConfiguration()
@@ -37,21 +37,11 @@ namespace MeetingScheduler
                 .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
-            // Log primer pri pokretanju
             Log.Information("Application started.");
 
             var loginView = new LoginView();
              loginView.Show();
-             loginView.IsVisibleChanged += (s,e) =>
-             {
-                 if (loginView.IsVisible == false && loginView.IsLoaded)
-                 {
-                     var MainView = new MainWindow();
-                     MainView.Show();
-                     loginView.Close();
-                 }
-
-             };
+           
              
            
         }
@@ -64,7 +54,6 @@ namespace MeetingScheduler
 
         private void ConfigureServices(IServiceCollection services)
         {
-            // Registracija navigacionog servisa
             services.AddSingleton<INavigationService, NavigationService>();
 
             services.AddTransient<MainWindowViewModel>();

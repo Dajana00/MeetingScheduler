@@ -83,6 +83,10 @@ namespace MeetingScheduler.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
@@ -94,6 +98,21 @@ namespace MeetingScheduler.Migrations
                     b.HasIndex("HostId");
 
                     b.ToTable("Meetings", (string)null);
+                });
+
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.MeetingUser", b =>
+                {
+                    b.Property<int>("MeetingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MeetingId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MeetingUser");
                 });
 
             modelBuilder.Entity("MeetingScheduler.Domain.Model.SpecialEvent", b =>
@@ -149,9 +168,6 @@ namespace MeetingScheduler.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MeetingId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -165,8 +181,6 @@ namespace MeetingScheduler.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MeetingId");
 
                     b.ToTable("Users", (string)null);
                 });
@@ -226,11 +240,23 @@ namespace MeetingScheduler.Migrations
                     b.Navigation("Host");
                 });
 
-            modelBuilder.Entity("MeetingScheduler.Domain.Model.User", b =>
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.MeetingUser", b =>
                 {
-                    b.HasOne("MeetingScheduler.Domain.Model.Meeting", null)
-                        .WithMany("Participants")
-                        .HasForeignKey("MeetingId");
+                    b.HasOne("MeetingScheduler.Domain.Model.Meeting", "Meeting")
+                        .WithMany("MeetingUsers")
+                        .HasForeignKey("MeetingId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("MeetingScheduler.Domain.Model.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Meeting");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MeetingScheduler.Domain.Model.DayOff", b =>
@@ -262,7 +288,7 @@ namespace MeetingScheduler.Migrations
 
             modelBuilder.Entity("MeetingScheduler.Domain.Model.Meeting", b =>
                 {
-                    b.Navigation("Participants");
+                    b.Navigation("MeetingUsers");
                 });
 #pragma warning restore 612, 618
         }

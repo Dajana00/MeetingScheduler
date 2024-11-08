@@ -77,15 +77,6 @@ namespace MeetingScheduler.ViewModel
         private void SaveChanges()
         {
             _userService.Update(_user);
-            _originalUserState = new Domain.Model.User
-            {
-                FirstName = _user.FirstName,
-                LastName = _user.LastName,
-                Username = _user.Username,
-                Email = _user.Email,
-                PhoneNumber = _user.PhoneNumber,
-                IsAdmin = _user.IsAdmin
-            };
             CloseCurrentWindow();
         }
 

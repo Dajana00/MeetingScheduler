@@ -16,5 +16,6 @@ namespace MeetingScheduler.Domain.RepositoryInterfaces
         void Update(Meeting meeting);
         List<Meeting> GetAll();
         List<Meeting> GetByUserId(int id);
+        Meeting GetById(int id);
     }
 }

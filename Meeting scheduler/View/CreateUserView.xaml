@@ -44,19 +44,70 @@
             </TextBox>
 
             <TextBlock Text="Last Name:" />
-            <TextBox Text="{Binding LastName}" Width="200" Margin="0,5,0,5"/>
+            <TextBox x:Name="lastName" Width="200"
+            Margin="0,0,0,15"  HorizontalAlignment="Center" TextAlignment="Center" FontSize="16">
+                <TextBox.Text>
+                    <Binding Path="LastName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
 
             <TextBlock Text="Username:" />
-            <TextBox Text="{Binding Username}" Width="200" Margin="0,5,0,5"/>
+            <TextBox x:Name="username" Width="200"
+            Margin="0,0,0,15"  HorizontalAlignment="Center" TextAlignment="Center" FontSize="16">
+                <TextBox.Text>
+                    <Binding Path="Username" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
 
             <TextBlock Text="Password:" />
-            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Width="200" Margin="0,5,0,5"/>
+            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" Width="200" Height="25" Margin="0,5,0,5"/>
 
             <TextBlock Text="Email:" />
-            <TextBox Text="{Binding Email}" Width="200" Margin="0,5,0,5"/>
+            <TextBox x:Name="email" Width="200"  
+         Margin="0,0,0,15"  HorizontalAlignment="Center" 
+         TextAlignment="Center" FontSize="16">
+                <TextBox.Text >
+                    <Binding Path="Email" UpdateSourceTrigger="PropertyChanged"  >
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation />
+                            <val:EmailValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
 
-            <TextBlock Text="Phone Number:" />
-            <TextBox Text="{Binding PhoneNumber}" Width="200" Margin="0,5,0,5"/>
+
+            <TextBlock Text="Phone number:" />
+            <TextBox x:Name="phone" Width="200"
+            Margin="0,0,0,15"  HorizontalAlignment="Center" TextAlignment="Center" FontSize="16">
+                <TextBox.Text>
+                    <Binding Path="PhoneNumber" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
 
             <Button Content="Create User" Command="{Binding CreateUserCommand}" Width="100" Margin="10" Style="{StaticResource ButtonTheme}"/>
 

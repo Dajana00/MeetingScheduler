@@ -30,9 +30,7 @@ namespace MeetingScheduler.Service
                 case "CreateLeaveRequest":
                     navigationService.Navigate(new CreateLeaveRequest());
                     break;
-                case "Calendar":
-                    navigationService.Navigate(new MonthlyScheduler());
-                    break;
+               
                 case "Users":
                     navigationService.Navigate(new AllUsersView());
                     break;
@@ -40,8 +38,6 @@ namespace MeetingScheduler.Service
                     navigationService.Navigate(new UsersRequestsView());
                     break;
                 case "Profile":
-                    //EditProfileDataView window = new EditProfileDataView(App.LoggedUser);
-                    //window.Show();
                     navigationService.Navigate(new UserProfile(App.LoggedUser));
                     break;
                 case "NewMeeting":

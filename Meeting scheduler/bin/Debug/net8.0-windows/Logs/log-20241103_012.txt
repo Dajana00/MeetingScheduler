@@ -1,5 +1,0 @@
-2024-11-03 15:29:38.873 +01:00 [INF] User login try: nina
-2024-11-03 15:29:40.038 +01:00 [WRN] Error while user login: nina
-2024-11-03 15:29:43.134 +01:00 [INF] User login try: nina
-2024-11-03 15:29:43.145 +01:00 [INF] User successifully logged in
-2024-11-03 15:31:25.977 +01:00 [INF] Application started.

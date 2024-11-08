@@ -12,8 +12,10 @@ namespace MeetingScheduler.Domain.RepositoryInterfaces
         void Save();
         void Create(Leave leave);
         void Remove(Leave leave);
+        void DeleteById(int id);
         void Update(Leave leave);
         List<Leave> GetAll();
+        Leave GetById(int id);
         List<Leave> GetAllApproved();
         List<Leave> GetAllPending();
         

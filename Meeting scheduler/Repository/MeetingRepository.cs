@@ -21,45 +21,47 @@ namespace MeetingScheduler.Repository
 
         public void Create(Meeting meeting)
         {
-            // Proveri da li DbContext već prati Host entitet
             if (meeting.Host != null)
             {
                 var existingHost = _context.Users.Local.FirstOrDefault(u => u.Id == meeting.Host.Id);
                 if (existingHost != null)
                 {
-                    // Koristi postojeći entitet umesto dodavanja novog
                     meeting.Host = existingHost;
                 }
                 else
                 {
-                    _context.Attach(meeting.Host); // Prati Host entitet ako nije već praćen
+                    _context.Attach(meeting.Host); 
                 }
             }
 
-            // Proveri i obradi svaki entitet u Participants kolekciji
-            if (meeting.Participants != null && meeting.Participants.Any())
+            if (meeting.MeetingUsers != null && meeting.MeetingUsers.Any())
             {
-                var participantsToAdd = new List<User>(); // Privremena lista za učesnike
+                var meetingUsersToAdd = new List<MeetingUser>(); // Privremena lista za MeetingUser entitete
 
-                foreach (var participant in meeting.Participants)
+                foreach (var meetingUser in meeting.MeetingUsers)
                 {
-                    var existingParticipant = _context.Users.Local.FirstOrDefault(u => u.Id == participant.Id);
-                    if (existingParticipant != null)
+                    var existingUser = _context.Users.Local.FirstOrDefault(u => u.Id == meetingUser.UserId);
+                    if (existingUser != null)
                     {
-                        participantsToAdd.Add(existingParticipant); // Koristi već postojeći entitet
+                        meetingUsersToAdd.Add(new MeetingUser
+                        {
+                            Meeting = meeting,
+                            User = existingUser
+                        });
                     }
                     else
                     {
-                        _context.Attach(participant); // Prati učesnika ako nije već praćen
-                        participantsToAdd.Add(participant);
+                        _context.Attach(meetingUser.User); 
+                        meetingUsersToAdd.Add(new MeetingUser
+                        {
+                            Meeting = meeting,
+                            User = meetingUser.User
+                        });
                     }
                 }
 
-                // Ažuriraj Participants kolekciju sa postojećim ili novim entitetima
-                meeting.Participants = participantsToAdd;
+                meeting.MeetingUsers = meetingUsersToAdd;
             }
-
-            // Dodaj Meeting entitet u DbContext
             _dbSet.Add(meeting);
             Save();
         }
@@ -69,15 +71,21 @@ namespace MeetingScheduler.Repository
 
         public List<Meeting> GetAll()
         {
-            return _dbSet.Include(l => l.Host).Include(l=>l.Participants).    //provjeriti
-                ToList();
+            return _dbSet.Include(l => l.Host)
+                         .Include(l => l.MeetingUsers)       
+                         .ThenInclude(mu => mu.User)         
+                         .ToList();
         }
+
         public List<Meeting> GetByUserId(int id)
         {
-            return _dbSet.Include(l => l.Host).Include(l => l.Participants).
-                Where(l=> l.Host.Id == id || l.Participants.Any(p => p.Id == id)).
-                ToList();
+            return _dbSet.Include(l => l.Host)
+                         .Include(l => l.MeetingUsers)     
+                         .ThenInclude(mu => mu.User)       
+                         .Where(l => l.Host.Id == id || l.MeetingUsers.Any(mu => mu.User.Id == id)) 
+                         .ToList();
         }
+
         public void Remove(Meeting meeting)
         {
             _dbSet.Remove(meeting);

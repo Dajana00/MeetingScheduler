@@ -14,5 +14,6 @@ namespace MeetingScheduler.Domain.RepositoryInterfaces
         void Remove(SpecialEvent specialEvent);
         void Update(SpecialEvent specialEvent);
         List<SpecialEvent> GetAll();
+        SpecialEvent GetById(int id);
     }
 }

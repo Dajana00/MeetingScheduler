@@ -1,0 +1,22 @@
+2024-11-08 13:51:05.687 +01:00 [INF] User login attempt: daks
+2024-11-08 13:51:07.776 +01:00 [INF] User 'daks' successfully logged in.
+2024-11-08 13:51:08.839 +01:00 [INF] Retrieved all meetings.
+2024-11-08 13:51:09.138 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 13:51:09.231 +01:00 [INF] Retrieved all special events.
+2024-11-08 13:51:09.263 +01:00 [INF] Retrieved all meetings.
+2024-11-08 13:51:09.284 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 13:51:09.309 +01:00 [INF] Generated subject for meeting 'Sastanak1'
+2024-11-08 13:51:28.199 +01:00 [INF] Retrieved all users.
+2024-11-08 13:52:05.174 +01:00 [INF] Meeting 'Meeting2' successfully created.
+2024-11-08 13:52:14.058 +01:00 [INF] User login attempt: kanda
+2024-11-08 13:52:14.079 +01:00 [INF] User 'kanda' successfully logged in.
+2024-11-08 13:52:14.296 +01:00 [INF] Retrieved meetings for user with ID '3'.
+2024-11-08 13:52:14.350 +01:00 [INF] Retrieved leave requests for user 3.
+2024-11-08 13:52:14.361 +01:00 [INF] Retrieved all special events.
+2024-11-08 13:52:14.366 +01:00 [INF] Retrieved meetings for user with ID '3'.
+2024-11-08 13:52:14.369 +01:00 [INF] Retrieved leave requests for user 3.
+2024-11-08 13:52:14.372 +01:00 [INF] Generated subject for meeting 'Meeting2'
+2024-11-08 14:19:17.441 +01:00 [INF] Application started.
+2024-11-08 14:23:41.962 +01:00 [INF] Application started.
+2024-11-08 14:30:37.123 +01:00 [INF] Application started.
+2024-11-08 14:34:55.420 +01:00 [INF] Application started.

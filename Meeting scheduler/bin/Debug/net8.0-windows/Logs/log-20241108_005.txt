@@ -1,0 +1,38 @@
+2024-11-08 15:19:03.755 +01:00 [INF] User login attempt: bubi
+2024-11-08 15:19:05.554 +01:00 [INF] User 'bubi' successfully logged in.
+2024-11-08 15:19:06.285 +01:00 [INF] Retrieved all meetings.
+2024-11-08 15:19:06.366 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 15:19:06.376 +01:00 [INF] Retrieved all special events.
+2024-11-08 15:19:06.397 +01:00 [INF] Retrieved all meetings.
+2024-11-08 15:19:06.416 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 15:19:10.666 +01:00 [INF] Retrieved all users.
+2024-11-08 15:19:45.750 +01:00 [INF] User 'nina' successfully created.
+2024-11-08 15:19:49.789 +01:00 [INF] Retrieved all users.
+2024-11-08 15:19:49.815 +01:00 [INF] Retrieved all leave requests.
+2024-11-08 15:19:53.579 +01:00 [INF] Retrieved all users.
+2024-11-08 15:19:53.589 +01:00 [INF] Retrieved all leave requests.
+2024-11-08 15:20:20.286 +01:00 [INF] User 'kanda' successfully created.
+2024-11-08 15:20:23.826 +01:00 [INF] Retrieved all users.
+2024-11-08 15:20:48.122 +01:00 [INF] Meeting 'Sastanak' successfully created.
+2024-11-08 15:21:14.616 +01:00 [INF] User login attempt: kanda
+2024-11-08 15:21:14.620 +01:00 [INF] User 'kanda' successfully logged in.
+2024-11-08 15:21:14.685 +01:00 [INF] Retrieved meetings for user with ID '3'.
+2024-11-08 15:21:14.705 +01:00 [INF] Retrieved leave requests for user 3.
+2024-11-08 15:21:14.708 +01:00 [INF] Retrieved all special events.
+2024-11-08 15:21:14.711 +01:00 [INF] Retrieved meetings for user with ID '3'.
+2024-11-08 15:21:14.712 +01:00 [INF] Retrieved leave requests for user 3.
+2024-11-08 15:21:14.716 +01:00 [INF] Generated subject for meeting 'Sastanak'
+2024-11-08 15:21:20.640 +01:00 [INF] Retrieved all users.
+2024-11-08 15:21:50.142 +01:00 [INF] Meeting 'razogov' successfully created.
+2024-11-08 15:21:58.183 +01:00 [INF] User login attempt: nina
+2024-11-08 15:21:58.194 +01:00 [INF] User 'nina' successfully logged in.
+2024-11-08 15:21:58.211 +01:00 [INF] Retrieved meetings for user with ID '2'.
+2024-11-08 15:21:58.218 +01:00 [INF] Retrieved leave requests for user 2.
+2024-11-08 15:21:58.220 +01:00 [INF] Retrieved all special events.
+2024-11-08 15:21:58.222 +01:00 [INF] Retrieved meetings for user with ID '2'.
+2024-11-08 15:21:58.223 +01:00 [INF] Retrieved leave requests for user 2.
+2024-11-08 15:21:58.224 +01:00 [INF] Generated subject for meeting 'Sastanak'
+2024-11-08 15:21:58.224 +01:00 [INF] Generated subject for meeting 'razogov'
+2024-11-08 15:22:09.346 +01:00 [INF] Retrieved all leave requests.
+2024-11-08 15:22:09.347 +01:00 [INF] Retrieved approved leaves for user 2 in month 11/2024.
+2024-11-08 15:24:03.792 +01:00 [INF] Application started.

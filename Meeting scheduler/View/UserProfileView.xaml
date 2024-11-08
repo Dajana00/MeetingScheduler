@@ -21,18 +21,13 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <!-- Naslov sa linijom ispod -->
             <StackPanel Grid.Row="0" Margin="0,0,0,20">
                 <TextBlock Text="User Profile" FontSize="24" FontWeight="Bold" Foreground="#333333"/>
                 <Rectangle Height="2" Fill="#007ACC" Width="200" HorizontalAlignment="Left" Margin="0,5,0,0"/>
             </StackPanel>
 
-            <!-- Glavni okvir za prikaz podataka o korisniku -->
             <Border Grid.Row="1" Padding="20" CornerRadius="10" BorderBrush="#007ACC" BorderThickness="1">
                 <StackPanel>
-
-
-                    <!-- Podaci korisnika -->
                     <StackPanel>
                         <TextBlock Text="First Name:" FontWeight="Bold" Foreground="#007ACC"/>
                         <TextBlock Text="{Binding User.FirstName}" FontSize="16" Margin="0,0,0,10" />
@@ -49,9 +44,17 @@
                         <TextBlock Text="Phone Number:" FontWeight="Bold" Foreground="#007ACC"/>
                         <TextBlock Text="{Binding User.PhoneNumber}" FontSize="16" Margin="0,0,0,10" />
 
-                        <Button Content="Edit profile" Style="{StaticResource ButtonTheme}"
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Edit profile" Style="{StaticResource ButtonTheme}"
                                 Command="{Binding EditProfileCommand}"
                                 HorizontalAlignment="Left" Margin="20 0 0 0"/>
+
+                            <Button Content="Leave statistics" Style="{StaticResource ButtonTheme}"
+                                Command="{Binding StatisticsCommand}"
+                                HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                        </StackPanel>
+                       
+                        
                     </StackPanel>
 
                 </StackPanel>

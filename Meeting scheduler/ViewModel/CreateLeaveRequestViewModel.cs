@@ -1,4 +1,5 @@
 ﻿using MeetingScheduler.Domain.Model;
+using MeetingScheduler.Logging;
 using MeetingScheduler.Service;
 using MeetingScheduler.View;
 using System;
@@ -7,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace MeetingScheduler.ViewModel
@@ -38,10 +40,9 @@ namespace MeetingScheduler.ViewModel
             {
                 _startDate = value;
                 OnPropertyChanged(nameof(StartDate));
+                OnPropertyChanged(nameof(EndDate));
             }
         }
-        
-
         public DateTime EndDate
         {
             get { return _endDate; }
@@ -61,17 +62,7 @@ namespace MeetingScheduler.ViewModel
                 UpdateLeaveTypeVisibilities();
             }
         }
-        public string SpecialEventType
-        {
-            get => _specialEventType;
-            set
-            {
-                _specialEventType = value;
-                OnPropertyChanged(nameof(SpecialEventType));
-                UpdateSpecialEventTypeVisibilities();
-            }
-        }
-
+        
         public bool IsSickLeave
         {
             get => _isSickLeave;
@@ -101,15 +92,7 @@ namespace MeetingScheduler.ViewModel
                 OnPropertyChanged(nameof(IsVacation));
             }
         }
-        public bool IsSpecialEvent
-        {
-            get => _isSpecialEvent;
-            set
-            {
-                _isSpecialEvent = value;
-                OnPropertyChanged(nameof(IsSpecialEvent));
-            }
-        }
+        
         public string MedicalDocument
         {
             get => _medicalDocument;
@@ -139,48 +122,6 @@ namespace MeetingScheduler.ViewModel
             }
         }
         
-      
-
-        private bool _isReligiousSpecialEvent;
-        public bool IsReligiousSpecialEvent
-        {
-            get => _isReligiousSpecialEvent;
-            set
-            {
-                _isReligiousSpecialEvent = value;
-                OnPropertyChanged(nameof(IsReligiousSpecialEvent));
-            }
-        }
-        private bool _isNationalSpecialEvent;
-        public bool IsNationalSpecialEvent
-        {
-            get => _isNationalSpecialEvent;
-            set
-            {
-                _isReligiousSpecialEvent = value;
-                OnPropertyChanged(nameof(IsNationalSpecialEvent));
-            }
-        }
-        private bool _isStateSpecialEvent;
-        public bool IsStateSpecialEvent
-        {
-            get => _isStateSpecialEvent;
-            set
-            {
-                _isStateSpecialEvent = value;
-                OnPropertyChanged(nameof(IsStateSpecialEvent));
-            }
-        }
-        private string _specialEventName;
-        public string SpecialEventName
-        {
-            get => _specialEventName;
-            set
-            {
-                _specialEventName = value;
-                OnPropertyChanged(nameof(SpecialEventName));
-            }
-        }
         public ICommand CreateLeaveRequestCommand { get; }
 
         public CreateLeaveRequestViewModel()
@@ -191,21 +132,12 @@ namespace MeetingScheduler.ViewModel
             EndDate = DateTime.Now;
             _leaveService = new LeaveService();
         }
-        
         private void UpdateLeaveTypeVisibilities()
         {
             IsSickLeave = LeaveType == "Sick Leave";
             IsDayOff = LeaveType == "Day Off";
             IsVacation = LeaveType == "Vacation";
-            IsSpecialEvent = LeaveType == "Special event";
         }
-        private void UpdateSpecialEventTypeVisibilities()
-        {
-            IsNationalSpecialEvent = SpecialEventType == "National";
-            IsReligiousSpecialEvent = SpecialEventType == "Religious";
-            IsStateSpecialEvent = SpecialEventType == "State";
-        }
-
         public string StatusMessage
         {
             get { return _statusMessage; }
@@ -214,11 +146,24 @@ namespace MeetingScheduler.ViewModel
 
         private bool CanExecuteRequest()
         {
-            if (StartDate > EndDate)
+            var validationRules = new List<(bool Condition, string ErrorMessage)>
             {
-                StatusMessage = "End date must be after the start date.";
-                return false;
+                (StartDate <= EndDate, "End date must be after the start date."),
+                (!string.IsNullOrWhiteSpace(LeaveType), "Please select a leave type."),
+                (!IsSickLeave || !string.IsNullOrWhiteSpace(MedicalDocument), "Please attach a medical document for sick leave."),
+                (!IsVacation || !string.IsNullOrWhiteSpace(VacationType), "Please specify the vacation type."),
+                (!IsDayOff || !string.IsNullOrWhiteSpace(Reason), "Please provide a reason for the day off.")
+            };
+
+            foreach (var (condition, errorMessage) in validationRules)
+            {
+                if (!condition)
+                {
+                    StatusMessage = errorMessage;
+                    return false;
+                }
             }
+            StatusMessage = string.Empty;
             return true;
         }
 
@@ -250,30 +195,26 @@ namespace MeetingScheduler.ViewModel
                
             }
             StatusMessage = "Leave request submitted successfully!";
+            
             _leaveService.Create(leave);
+            MessageBox.Show(StatusMessage, "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
+            ResetFields();
         }
 
-       /* private SpecialEvent CreateSpecialEvent()
+        private void ResetFields()
         {
-            SpecialEvent specialEvent = new SpecialEvent();
-            DateTime endDate = new DateTime(EndDate.Year, EndDate.Month, EndDate.Day, 23, 59, 0);
-
-            if (IsStateSpecialEvent)
-            {
-                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING, Domain.Model.SpecialEventType.STATE, SpecialEventName);
-            }
-            if (IsNationalSpecialEvent)
-            {
-                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING, Domain.Model.SpecialEventType.NATIONAL, SpecialEventName);
-            }
-            if (IsReligiousSpecialEvent)
-            {
-                specialEvent = new SpecialEvent(_userService.GetById(App.LoggedUser.Id), StartDate, endDate, Status.PENDING, Domain.Model.SpecialEventType.RELIGIOUS, SpecialEventName);
-            }
-            return specialEvent;
+            LeaveType = string.Empty;
+            MedicalDocument = string.Empty;
+            Reason = string.Empty;
+            VacationType = string.Empty;
+            StatusMessage = string.Empty;
+            StartDate = DateTime.Now;
+            EndDate = DateTime.Now;
+            IsSickLeave = false;
+            IsDayOff = false;
+            IsVacation = false;
         }
-       */
 
     }
 }

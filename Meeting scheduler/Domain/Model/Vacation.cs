@@ -12,7 +12,7 @@ namespace MeetingScheduler.Domain.Model
         public string Type { get; set; }
 
         public Vacation() {
-            ColorHex = "#AFC0CB";
+            ColorHex = "#b0f7ca";
         }   
         public Vacation(User user, DateTime startDate, DateTime endDate, Status status, string type)
         {
@@ -21,7 +21,7 @@ namespace MeetingScheduler.Domain.Model
             EndDate = endDate;
             Type = type;
             Status = status;
-            ColorHex = "#AFC0CB";
+            ColorHex = "#b0f7ca";
         }
     }
 

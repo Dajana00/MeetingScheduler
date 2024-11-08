@@ -25,16 +25,16 @@
     <Compile Update="View\CreateUserView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\EditEvent.xaml.cs">
+    <Compile Update="View\EditProfileDataView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\EditProfileDataView.xaml.cs">
+    <Compile Update="View\LeaveStatistics.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\MonthlySchedulerView.xaml.cs">
+    <Compile Update="View\ResetPasswordView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\UserProfileView.xaml.cs">
@@ -78,16 +78,16 @@
     <Page Update="View\CreateUserView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\EditEvent.xaml">
+    <Page Update="View\EditProfileDataView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\EditProfileDataView.xaml">
+    <Page Update="View\LeaveStatistics.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\MonthlySchedulerView.xaml">
+    <Page Update="View\ResetPasswordView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\UserProfileView.xaml">

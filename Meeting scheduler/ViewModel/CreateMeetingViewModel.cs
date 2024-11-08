@@ -7,9 +7,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
-using System.Windows.Navigation;
-using NavigationService = MeetingScheduler.Service.NavigationService;
 
 namespace MeetingScheduler.ViewModel
 {
@@ -31,7 +30,7 @@ namespace MeetingScheduler.ViewModel
             AllUsers = new ObservableCollection<User>(_userService.GetAll().Where(u=> u.Id != App.LoggedUser.Id));
             _selectedParticipants = new ObservableCollection<User>();
 
-            SaveMeetingCommand = new RelayCommand(SaveMeeting);
+            SaveMeetingCommand = new RelayCommand(SaveMeeting, CanSaveMeeting);
             CancelCommand = new RelayCommand(Cancel);
         }
 
@@ -72,6 +71,7 @@ namespace MeetingScheduler.ViewModel
             {
                 _startDate = value;
                 OnPropertyChanged(nameof(StartDate));
+                OnPropertyChanged(nameof(EndDate));
             }
         }
 
@@ -163,23 +163,69 @@ namespace MeetingScheduler.ViewModel
             EndDate = new DateTime(EndDate.Year, EndDate.Month, EndDate.Day, EndHour, EndMinute, 0);
         }
 
-
+        private bool CanSaveMeeting()
+        {
+            return !string.IsNullOrWhiteSpace(Name) &&
+                  !string.IsNullOrWhiteSpace(Location) &&
+                   !string.IsNullOrWhiteSpace(MeetingType) &&
+                   SelectedParticipants.Count > 0 &&
+                   StartDate >= DateTime.Now &&
+                   StartDate <= EndDate;
+        }
         private void SaveMeeting()
         {
-            UpdateEndDateTime();
-            UpdateStartDateTime();
-            if (_meetingType == "Offline")
-                
+            try
             {
-                Meeting meeting = new Meeting(App.LoggedUser, StartDate, EndDate, Domain.Model.MeetingType.Offline, _location, SelectedParticipants.ToList());
+                UpdateEndDateTime();
+                UpdateStartDateTime();
+
+                Meeting meeting;
+                if (_meetingType == "Offline")
+                {
+                    meeting = new Meeting(_name, App.LoggedUser, StartDate, EndDate, Domain.Model.MeetingType.Offline, _location);
+                }
+                else
+                {
+                    meeting = new Meeting(_name, App.LoggedUser, StartDate, EndDate, Domain.Model.MeetingType.Online, _location);
+                }
+
+                foreach (var participant in SelectedParticipants)
+                {
+                    var meetingUser = new MeetingUser
+                    {
+                        Meeting = meeting,        
+                        User = participant          
+                    };
+                    meeting.MeetingUsers.Add(meetingUser);  
+                }
+
                 _meetingService.Create(meeting);
+
+                MessageBox.Show("Meeting created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                ResetFields();
             }
-            else
+            catch (Exception ex)
             {
-                Meeting meeting = new Meeting(App.LoggedUser, StartDate, EndDate, Domain.Model.MeetingType.Online, _location, SelectedParticipants.ToList());
-                _meetingService.Create(meeting);
+                MessageBox.Show($"An error occurred while creating the meeting: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+        private void ResetFields()
+        {
+            StartDate = DateTime.Now;
+            EndDate = DateTime.Now;
+            Location = string.Empty;
+            MeetingType = string.Empty;
+            SelectedParticipants.Clear();
+            OnPropertyChanged(nameof(StartDate));
+            OnPropertyChanged(nameof(EndDate));
+            OnPropertyChanged(nameof(Location));
+            OnPropertyChanged(nameof(MeetingType));
+            OnPropertyChanged(nameof(SelectedParticipants));
+        }
+
         private void Cancel()
         {
             CloseCurrentWindow();

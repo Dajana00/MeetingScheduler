@@ -17,7 +17,7 @@
 
     <Style x:Key="columnHeader" TargetType="DataGridColumnHeader" >
         <Setter Property="Background" Value="#a1aaed"></Setter>
-        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
         <Setter Property="FontSize" Value="16"></Setter>
         <Setter Property="FontWeight" Value="Bold"></Setter>
         <Setter Property="Padding" Value="10 0 0 0"></Setter>
@@ -56,12 +56,12 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#f6edfc"/>
-                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
 
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="#f6edfc"/>
-                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
 
             </Trigger>
         </Style.Triggers>

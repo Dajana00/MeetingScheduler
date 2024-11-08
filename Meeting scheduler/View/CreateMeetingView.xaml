@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MeetingScheduler.View"
       mc:Ignorable="d" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CreateMeetingView">
 
@@ -15,12 +16,16 @@
             <TextBlock Text="Meeting Name:" />
             <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,15" />
 
-         
-            <TextBlock Text="Start Time:" />
             <StackPanel Orientation="Horizontal">
-                <DatePicker SelectedDate="{Binding StartDate}" Margin="0,5,5,15" />
+                <TextBlock Text="Start Time:" />
+                <TextBlock Text="Hour:" Margin="80 0 0 0"/>
+                <TextBlock Text="Minute:" Margin="40 0 0 0"/>
+            </StackPanel>
+           
+            <StackPanel Orientation="Horizontal">
+                <DatePicker SelectedDate="{Binding StartDate , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" DisplayDateStart="{x:Static sys:DateTime.Now}" Margin="0,5,5,15"  />
                 <ComboBox SelectedValue="{Binding StartHour}" SelectedValuePath="Content" Width="50" Margin="0,5,5,15">
-
+                  
                     <ComboBoxItem Content="00" />
                     <ComboBoxItem Content="01" />
                     <ComboBoxItem Content="02" />
@@ -63,9 +68,14 @@
                     <ComboBoxItem Content="55" />
                 </ComboBox>
             </StackPanel>
-            <TextBlock Text="End Time:" />
-                <StackPanel Orientation="Horizontal">
-        <DatePicker SelectedDate="{Binding EndDate}" Margin="0,5,5,15"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="End Time:" />
+                <TextBlock Text="Hour:" Margin="80 0 0 0"/>
+                <TextBlock Text="Minute:" Margin="40 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <DatePicker SelectedDate="{Binding EndDate , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" DisplayDateStart="{Binding StartDate}" Margin="0,5,5,15"/>
                 <ComboBox SelectedValue="{Binding EndHour}" SelectedValuePath="Content" Width="50" Margin="0,5,5,15">
                     <ComboBoxItem Content="00" />
                     <ComboBoxItem Content="01" />

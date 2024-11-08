@@ -1,0 +1,9 @@
+2024-11-08 15:43:11.646 +01:00 [ERR] Error retrieving user with email: skocajiclj004@gmail.com
+System.ArgumentException: The key value at position 0 of the call to 'DbSet<User>.Find' was of type 'string', which does not match the property type of 'int'.
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.FindTracked(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MeetingScheduler.Repository.UserRepository.GetByEmail(String email) in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Repository\UserRepository.cs:line 83
+   at MeetingScheduler.Service.UserService.GetByEmail(String email) in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Service\UserService.cs:line 121
+2024-11-08 15:43:11.773 +01:00 [INF] Generated random string for password reset.
+2024-11-08 15:44:00.127 +01:00 [INF] Application started.

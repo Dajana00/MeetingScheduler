@@ -6,11 +6,30 @@
       xmlns:local="clr-namespace:MeetingScheduler.View" 
       xmlns:viewmodel="clr-namespace:MeetingScheduler.ViewModel"
       mc:Ignorable="d" 
+              xmlns:val="clr-namespace:MeetingScheduler.Validation"
+
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CreateLeaveRequest">
-    <!-- Definiši resurse za ovu stranicu -->
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+            <!--Validation error template-->
+            <ControlTemplate x:Key="ValidationErrorTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                </Grid>
+            </ControlTemplate>
     </Page.Resources>
     
     <Grid>
@@ -23,60 +42,73 @@
                 <ComboBoxItem Content="Vacation" />
                 <ComboBoxItem Content="Sick Leave" />
                 <ComboBoxItem Content="Day Off" />
-                <ComboBoxItem Content="Special event" />
             </ComboBox>
 
             <TextBlock Text="Start Date"
                        Margin="0,10,0,0"/>
-            <DatePicker SelectedDate="{Binding StartDate}" />
+            <DatePicker SelectedDate="{Binding StartDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                        DisplayDateStart="{x:Static sys:DateTime.Now}"/>
 
             <TextBlock Text="End Date" Margin="0,10,0,0"/>
-            <DatePicker SelectedDate="{Binding EndDate}" />
+            <DatePicker SelectedDate="{Binding EndDate , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" DisplayDateStart="{Binding StartDate}"/>
 
             <!-- Polje za Medical Document (prikazati samo za Sick Leave) -->
             <TextBlock Text="Medical Document"
                        Margin="0,10,0,0" 
                        Visibility="{Binding IsSickLeave, Converter={StaticResource BooleanToVisibilityConverter}}" />
-            <TextBox Text="{Binding MedicalDocument}"
-                     Visibility="{Binding IsSickLeave, Converter={StaticResource BooleanToVisibilityConverter}}" />
-
+         
+            <TextBox x:Name="sickLeave" Width="400" Visibility="{Binding IsSickLeave, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Margin="0,0,0,15"  HorizontalAlignment="Center" TextAlignment="Center" FontSize="16">
+                <TextBox.Text>
+                    <Binding Path="MedicalDocument" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
             <!-- Polje za Reason (prikazati samo za Day Off) -->
-            <TextBlock Text="Reason"
-                       Margin="0,10,0,0"
-                       Visibility="{Binding IsDayOff, Converter={StaticResource BooleanToVisibilityConverter}}" />
-            <TextBox Text="{Binding Reason}"
-                     Visibility="{Binding IsDayOff, Converter={StaticResource BooleanToVisibilityConverter}}" />
-
-            <!-- Polje za Vacation Type (prikazati samo za Vacation) -->
-            <TextBlock Text="Vacation Type"
-                       Margin="0,10,0,0"
-                       Visibility="{Binding IsVacation, Converter={StaticResource BooleanToVisibilityConverter}}" />
-            <TextBox Text="{Binding VacationType}" 
-                     Visibility="{Binding IsVacation, Converter={StaticResource BooleanToVisibilityConverter}}" />
-
-            <!--Kombo boks za specijalne dogadjaje-->
-            <TextBlock Text="Name"
-                    Margin="0,10,0,0"
-                        Visibility="{Binding IsSpecialEvent, Converter={StaticResource BooleanToVisibilityConverter}}" />
-            <ComboBox SelectedValue="{Binding SpecialEventType}" SelectedValuePath="Content" 
-                      Visibility="{Binding IsSpecialEvent, Converter={StaticResource BooleanToVisibilityConverter}}" >
-                <ComboBoxItem Content="Religious" />
-                <ComboBoxItem Content="National" />
-                <ComboBoxItem Content="State" />
-            </ComboBox>
-
-            <TextBlock Text="Name"
-                    Margin="0,10,0,0"
-                    Visibility="{Binding IsSpecialEvent, Converter={StaticResource BooleanToVisibilityConverter}}" />
-            <TextBox Text="{Binding SpecialEventName}" 
-                     Visibility="{Binding IsSpecialEvent, Converter={StaticResource BooleanToVisibilityConverter}}" />
+          
+            <TextBlock Text="Reason:" Visibility="{Binding IsDayOff, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <TextBox x:Name="reason" Width="400" Visibility="{Binding IsDayOff, Converter={StaticResource BooleanToVisibilityConverter}}"
+            Margin="0,0,0,15"  HorizontalAlignment="Center" TextAlignment="Center" FontSize="16">
+                <TextBox.Text>
+                    <Binding Path="Reason" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <!-- Polje za Vacation Type -->
+         
+            <TextBlock Text="Description:"  Visibility="{Binding IsVacation, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <TextBox x:Name="VACATIONTYPE" Width="400"  Visibility="{Binding IsVacation, Converter={StaticResource BooleanToVisibilityConverter}}"
+            Margin="0,0,0,15"  HorizontalAlignment="Center" TextAlignment="Center" FontSize="16">
+                <TextBox.Text>
+                    <Binding Path="VacationType" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
 
 
             <Button Content="Submit Request" 
                     Command="{Binding CreateLeaveRequestCommand}"
                     Margin="0,20,0,0"/>
 
-            <TextBlock Text="{Binding StatusMessage}" Foreground="Red" Margin="0,10,0,0"/>
+            <TextBlock Text="{Binding StatusMessage}" Foreground="Black" Margin="0,10,0,0"/>
 
         </StackPanel>
     </Grid>

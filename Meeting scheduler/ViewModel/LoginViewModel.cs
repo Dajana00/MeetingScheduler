@@ -1,4 +1,5 @@
 ﻿using MeetingScheduler.Service;
+using MeetingScheduler.View;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -21,13 +22,23 @@ namespace MeetingScheduler.ViewModel
         private bool _isViewVisible = true;
         private readonly UserService _personService;
         public ICommand LoginCommand { get; }
+        public ICommand ResetPasswordCommand { get; }
+        private LoginView LoginView;
 
-        public LoginViewModel()
+        public LoginViewModel(LoginView loginView)
         {
             LoginCommand = new RelayCommand(ExecuteLogin, CanExecuteLogin);
+            ResetPasswordCommand = new RelayCommand(OpenResetPasswordView);
             _personService = new UserService();
+            LoginView = loginView;
         }
-
+        private void OpenResetPasswordView()
+        {
+            //CloseCurrentWindow();
+            ResetPasswordView resetPasswordView = new ResetPasswordView();
+            resetPasswordView.Show();
+            
+        }
         public string Username
         {
             get { return _username; }
@@ -37,7 +48,6 @@ namespace MeetingScheduler.ViewModel
                 OnPropertyChanged(nameof(Username));
             }
         }
-
         public SecureString Password
         {
             get { return _password; }
@@ -79,6 +89,10 @@ namespace MeetingScheduler.ViewModel
             {
                 Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(Username), null);
                 IsViewVisible = false;
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                LoginView.Close();
+                
             }
             else
             {

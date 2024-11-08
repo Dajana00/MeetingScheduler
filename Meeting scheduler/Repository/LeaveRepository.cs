@@ -25,12 +25,22 @@ namespace MeetingScheduler.Repository
         {
             if (leave.User != null)
             {
-                _context.Attach(leave.User); // Ovim oznacavamo da User vec postoji
+                var trackedUser = _context.Users.Local.FirstOrDefault(u => u.Id == leave.User.Id);
+
+                if (trackedUser != null)
+                {
+                    leave.User = trackedUser;
+                }
+                else
+                {
+                    _context.Attach(leave.User);
+                }
             }
 
             _dbSet.Add(leave);
             Save();
         }
+
 
         public void Remove(Leave leave)
         {
@@ -49,6 +59,7 @@ namespace MeetingScheduler.Repository
             return _dbSet.Include(l => l.User).
                 ToList();
         }
+
         public List<Leave> GetAllPending()
         {
             return _dbSet.Include(l => l.User).Where(l=>l.Status == Status.PENDING).
@@ -73,6 +84,10 @@ namespace MeetingScheduler.Repository
                 .Where(leave =>leave.User.Id == id && leave.Status == Status.APPROVED) 
                 .ToList();
         }
+        public Leave GetById(int id)
+        {
+            return _dbSet.Find(id);
+        }
         public List<Leave> GetByDateForUser(DateTime date, int id)
         {
             return _dbSet.Include(l => l.User)
@@ -80,6 +95,12 @@ namespace MeetingScheduler.Repository
                     leave.StartDate <= date &&
                     leave.EndDate >= date && leave.User.Id ==id && leave.Status == Status.APPROVED)
                 .ToList();
+        }
+
+        public void DeleteById(int id)
+        {
+            _dbSet.Remove(GetById(id));
+            Save();
         }
     }
 }

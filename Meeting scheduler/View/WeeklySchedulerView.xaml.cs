@@ -24,25 +24,51 @@ namespace MeetingScheduler.View
     public partial class WeeklySchedulerView : Page
     {
 
-        private readonly CalendarAppointmentService calendarAppointmentService;
+        private readonly MeetingService _meetingService;
+        private readonly LeaveService _leaveService;
+        private readonly SpecialEventService _specialEventService;
+
         WeeklySchedulerViewModel viewModel = new WeeklySchedulerViewModel();
         public WeeklySchedulerView()
         {
             InitializeComponent();
             this.DataContext =viewModel;
-            calendarAppointmentService = new CalendarAppointmentService(viewModel.Appointments);
+            _specialEventService = new SpecialEventService();
+            _meetingService = new MeetingService();
+            _leaveService = new LeaveService();
         }
 
         private void Schedule_AppointmentEditorClosing(object sender, Syncfusion.UI.Xaml.Scheduler.AppointmentEditorClosingEventArgs e)
         {
             if (e.Action == Syncfusion.UI.Xaml.Scheduler.AppointmentEditorAction.Edit)
             {
-                CustomScheduleAppointment appointment = new CustomScheduleAppointment();
-                appointment.StartTime = e.Appointment.StartTime;
-                Console.WriteLine(appointment);
-                if(appointment != null) {   
-                calendarAppointmentService.EditAppointment(appointment,viewModel._meetings,viewModel._leaves);
-               }
+                if(e.Appointment.Notes == "Meeting")
+                {
+                    _meetingService.UpdateMeetingAppointment(e.Appointment);
+                }
+                if (e.Appointment.Notes == "Leave")
+                {
+                    _leaveService.UpdateLeaveAppointment(e.Appointment);
+                }
+                if (e.Appointment.Notes == "SpecialEvent")
+                {
+                    _specialEventService.UpdateSpecialEventAppointment(e.Appointment);
+                }
+            }
+            else if(e.Action == Syncfusion.UI.Xaml.Scheduler.AppointmentEditorAction.Delete)
+            {
+                if (e.Appointment.Notes == "Meeting")
+                {
+                    _meetingService.DeleteMeetingAppointment(e.Appointment);
+                }
+                if (e.Appointment.Notes == "Leave")
+                {
+                    _leaveService.Delete((int)e.Appointment.Id);
+                }
+                if (e.Appointment.Notes == "SpecialEvent")
+                {
+                    _specialEventService.DeleteSpecialEventAppointment(e.Appointment);
+                }
             }
         }
     }

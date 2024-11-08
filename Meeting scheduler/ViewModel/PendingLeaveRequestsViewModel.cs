@@ -31,8 +31,6 @@ namespace MeetingScheduler.ViewModel
         }
 
         private ObservableCollection<Leave> _events;
-
-
         public ObservableCollection<Leave> Events
         {
             get => _events;

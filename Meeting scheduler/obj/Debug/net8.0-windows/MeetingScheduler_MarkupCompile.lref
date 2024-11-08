@@ -5,12 +5,12 @@ FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\MainWindow.xaml;;
 FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\AllUsersView.xaml;;
 FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateLeaveRequestView.xaml;;
 FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateMeetingView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateSpecialEventView.xaml;;
 FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateUserView.xaml;;
 FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\EditProfileDataView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\LeaveStatistics.xaml;;
 FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\LoginView.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\MonthlySchedulerView.xaml;;
 FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\PendingLeaveRequests.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\ResetPasswordView.xaml;;
 FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\WeeklySchedulerView.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\EditEvent.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateSpecialEventView.xaml;;
 

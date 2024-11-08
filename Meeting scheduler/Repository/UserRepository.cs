@@ -54,11 +54,7 @@ namespace MeetingScheduler.Repository
             _context.SaveChanges();
         }
 
-        public void Edit(User entity)
-        {
-            throw new NotImplementedException();
-        }
-
+        
       
 
         public bool Login(NetworkCredential credential)
@@ -77,9 +73,10 @@ namespace MeetingScheduler.Repository
             return false;
         }
 
-        public int GetId(User person)
+       
+        public User GetByEmailAndUsername(string email, string username)
         {
-            throw new NotImplementedException();
+            return _dbSet.FirstOrDefault(u=> u.Email == email && u.Username == username);
         }
     }
 }

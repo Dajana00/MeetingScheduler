@@ -21,8 +21,7 @@ namespace MeetingScheduler.ViewModel
         private readonly INavigationService _navigationService;
         public MainWindow _mainWindow { get; set; }
 
-        //public ICommand NavigationCommand => new RelayCommandWithParams(Navigationations);
-        //public ICommand NavigateBackCommand => new RelayCommand(OnNavigateBack);
+        public ICommand LogoutCommand { get; }
 
         public User LoggedPerson { get; set; } = App.LoggedUser;
 
@@ -30,27 +29,27 @@ namespace MeetingScheduler.ViewModel
         {
             _mainWindow = mainWindow;
             _navigationService = navigationService;
+            LogoutCommand = new RelayCommand(ExecuteLogout);
             StartUp();
+        }
+        private void ExecuteLogout()
+        {
+            LoginView loginView = new LoginView();
+            loginView.Show();
+            _mainWindow.Close();
+            //Application.Current.MainWindow.Close();
+            
+            App.LoggedUser = null;
         }
         private void StartUp()
         {
             var navigationService = _mainWindow.MainFrame.NavigationService;
             navigationService.Navigate(new WeeklySchedulerView());
         }
-       /*
-
-        private void OnNavigateBack()
-        {
-            if (_navigationService.CanGoBack)
-            {
-                _navigationService.GoBack();
-            }
-        }*/
+       
         public bool IsAdmin => LoggedPerson?.IsAdmin ?? false;
 
         public Visibility UsersButtonVisibility => IsAdmin ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility RequestsButtonVisibility => IsAdmin ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility CreateUserButtonVisibility => IsAdmin ? Visibility.Visible : Visibility.Collapsed;
         public ICommand NavigateToCreateUserCommand => new RelayCommand(() => _navigationService.NavigateTo("CreateUser"));
         public ICommand NavigateToLeaveRequestCommand => new RelayCommand(() => _navigationService.NavigateTo("CreateLeaveRequest"));
         public ICommand NavigateToCalendarCommand => new RelayCommand(() => _navigationService.NavigateTo("Calendar"));

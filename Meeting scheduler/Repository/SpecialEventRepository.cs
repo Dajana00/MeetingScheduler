@@ -40,6 +40,10 @@ namespace MeetingScheduler.Repository
         {
             _context.SaveChanges();
         }
+        public SpecialEvent GetById(int id)
+        {
+            return _dbSet.Find(id);
+        }
 
         public void Update(SpecialEvent specialEvent)
         {

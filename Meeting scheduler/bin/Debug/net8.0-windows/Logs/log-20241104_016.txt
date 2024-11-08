@@ -1,3 +1,0 @@
-2024-11-04 12:41:43.161 +01:00 [INF] User login try: nina
-2024-11-04 12:41:43.922 +01:00 [INF] User successifully logged in
-2024-11-04 13:07:43.147 +01:00 [INF] Application started.

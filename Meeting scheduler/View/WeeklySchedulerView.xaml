@@ -29,14 +29,14 @@
                     Content="Weekly" Margin="20 0 0 0"
                     Style="{StaticResource ButtonTheme}"/>
         </StackPanel>
-        
-        
+
+
         <syncfusion:SfScheduler x:Name="Schedule" ViewType="Week" EnableToolTip="True"
                         ItemsSource="{Binding Appointments}"
                         Grid.Column="1" Grid.Row="1" 
-                        Visibility="{Binding WeeklyScheduleVisibility}"     >   
-                        <!--AppointmentEditorClosing="Schedule_AppointmentEditorClosing"
-                        DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}"-->
+                        Visibility="{Binding WeeklyScheduleVisibility}"
+                        AppointmentEditorClosing = "Schedule_AppointmentEditorClosing"
+                        DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Page}}">
                       
 
 

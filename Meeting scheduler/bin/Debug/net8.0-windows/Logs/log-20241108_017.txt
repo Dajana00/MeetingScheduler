@@ -1,0 +1,21 @@
+2024-11-08 16:37:58.952 +01:00 [INF] User login attempt: bubi
+2024-11-08 16:37:59.825 +01:00 [INF] User 'bubi' successfully logged in.
+2024-11-08 16:38:00.552 +01:00 [INF] Retrieved all meetings.
+2024-11-08 16:38:00.676 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 16:38:00.685 +01:00 [INF] Retrieved all special events.
+2024-11-08 16:38:00.698 +01:00 [INF] Retrieved all meetings.
+2024-11-08 16:38:00.699 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 16:38:00.705 +01:00 [INF] Generated subject for leave request 'nina'.
+2024-11-08 16:38:00.707 +01:00 [INF] Generated subject for leave request 'bubi'.
+2024-11-08 16:38:00.717 +01:00 [INF] Generated subject for meeting 'Sastanak'
+2024-11-08 16:38:00.717 +01:00 [INF] Generated subject for meeting 'razogov'
+2024-11-08 16:38:19.870 +01:00 [INF] Leave appointment updated for 'nina'.
+2024-11-08 16:38:29.798 +01:00 [INF] Retrieved all meetings.
+2024-11-08 16:38:29.809 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 16:38:29.814 +01:00 [INF] Retrieved all special events.
+2024-11-08 16:38:29.816 +01:00 [INF] Retrieved all meetings.
+2024-11-08 16:38:29.818 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 16:38:29.819 +01:00 [INF] Generated subject for leave request 'nina'.
+2024-11-08 16:38:29.821 +01:00 [INF] Generated subject for leave request 'bubi'.
+2024-11-08 16:38:29.822 +01:00 [INF] Generated subject for meeting 'Sastanak'
+2024-11-08 16:38:29.822 +01:00 [INF] Generated subject for meeting 'razogov'

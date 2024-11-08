@@ -21,7 +21,7 @@ namespace MeetingScheduler.ViewModel
 
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
-
+        public ICommand StatisticsCommand {  get; }     
         public AllUsersViewModel()
         {
             _personService = new UserService();
@@ -30,6 +30,7 @@ namespace MeetingScheduler.ViewModel
 
             EditCommand = new RelayCommand<User>(EditUser);
             DeleteCommand = new RelayCommand<User>(DeleteUser);
+            StatisticsCommand = new RelayCommand<User>(GetStatistics);
 
             Requests = new ObservableCollection<MonthlyEventDto>(GetAllLeaveRequests());
 
@@ -50,6 +51,11 @@ namespace MeetingScheduler.ViewModel
 
         }
 
+        private void GetStatistics(User user)
+        {
+            LeaveStatistics leaveStatistic = new LeaveStatistics(user);
+            leaveStatistic.Show();
+        }
         private ObservableCollection<Leave> _events;
         
  
@@ -74,7 +80,6 @@ namespace MeetingScheduler.ViewModel
                 OnPropertyChanged(nameof(Requests));
             }
         }
-
         
         private List<MonthlyEventDto> GetAllLeaveRequests()
         {
@@ -105,7 +110,8 @@ namespace MeetingScheduler.ViewModel
                 {
                     Vacation vacation => vacation.Type,
                     DayOff dayOff => dayOff.Reason,
-                    SickLeave sickLeave => sickLeave.MedicalCertificate
+                    SickLeave sickLeave => sickLeave.MedicalCertificate,
+                    _ => "Other"
                 }
 
             };

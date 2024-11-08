@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\App.xaml
-171584754056
+171948823283
 
-711358064918
+76-522224078
 254-982079110
-CustomControls\BindablePasswordBox.xaml;MainWindow.xaml;Themes\ButtonTheme.xaml;Themes\DataGridStyle.xaml;Themes\InputFieldTheme.xaml;View\AllUsersView.xaml;View\CreateLeaveRequestView.xaml;View\CreateMeetingView.xaml;View\CreateSpecialEventView.xaml;View\CreateUserView.xaml;View\EditEvent.xaml;View\EditProfileDataView.xaml;View\LoginView.xaml;View\MonthlySchedulerView.xaml;View\PendingLeaveRequests.xaml;View\UserProfileView.xaml;View\WeeklySchedulerView.xaml;
+CustomControls\BindablePasswordBox.xaml;MainWindow.xaml;Themes\ButtonTheme.xaml;Themes\DataGridStyle.xaml;Themes\InputFieldTheme.xaml;View\AllUsersView.xaml;View\CreateLeaveRequestView.xaml;View\CreateMeetingView.xaml;View\CreateSpecialEventView.xaml;View\CreateUserView.xaml;View\EditProfileDataView.xaml;View\LeaveStatistics.xaml;View\LoginView.xaml;View\PendingLeaveRequests.xaml;View\ResetPasswordView.xaml;View\UserProfileView.xaml;View\WeeklySchedulerView.xaml;
 
 False
 

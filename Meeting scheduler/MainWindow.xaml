@@ -67,6 +67,7 @@
 
         <Image Source="/Resources/calendar.png" Width="70" Margin="0,0,120,0"></Image>
         <TextBlock Text="Scheduler" FontSize="26" FontWeight="Bold" Foreground="#004040" VerticalAlignment="Center" Margin="120,0,0,0"></TextBlock>
+        <Button Content="Logout" Command="{Binding LogoutCommand}" Grid.Column="1" Style="{StaticResource ButtonTheme}" HorizontalAlignment="Center" Margin="750 0 0 0" Width="100" />
 
 
 
@@ -79,51 +80,47 @@
                 <UniformGrid Rows="9">
                     <Button  Command="{Binding NavigateToLeaveRequestCommand}" Width="150" Height="50" FontSize="16" CommandParameter="CreateLeaveRequest"  Style="{StaticResource ButtonTheme}" >
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Leave request"  FontWeight="Bold" Margin="10 7 0 0"/>
+                            <TextBlock Text="Leave request"  FontWeight="Bold"/>
                         </StackPanel>
                     </Button>
                     <Button  Command="{Binding NavigateToUsersCommand}" FontSize="16"  Width="150" Height="50" Visibility="{Binding UsersButtonVisibility}" CommandParameter="Users"  Style="{StaticResource ButtonTheme}" >
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Users" Margin="-30,5,5,0" FontWeight="Bold"></TextBlock>
+                            <TextBlock Text="Users"  FontWeight="Bold"></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button  Command="{Binding NavigateToRequestsCommand}" FontSize="16"  Width="150" Height="50" 
-                             Visibility="{Binding RequestsButtonVisibility}"
+                             Visibility="{Binding UsersButtonVisibility}"
                              CommandParameter="Requests"  Style="{StaticResource ButtonTheme}">
                         <StackPanel Orientation="Horizontal">
                             <!--Image Source="/Resources/plus.jpeg" Width="30" Margin="-20 0 0 0"-->
-                            <TextBlock Text="Requests" Margin="-20,7,0,0" FontWeight="Bold"></TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button  Command="{Binding NavigateToCalendarCommand}" FontSize="16" Width="150" Height="50" CommandParameter="Calendar"  Style="{StaticResource ButtonTheme}" >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Calendar" Margin="-9 6 10 0" FontWeight="Bold"/>
-                        </StackPanel>
-                    </Button>
-                    <Button  Command="{Binding NavigateToCreateUserCommand }" FontSize="16" Width="150" Height="50" CommandParameter="CreateUser"  Style="{StaticResource ButtonTheme}" >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Create user" Margin="22,8,25,0" FontWeight="Bold"></TextBlock>
-                        </StackPanel>
-                    </Button>
-                    <Button  Command="{Binding NavigateToProfleCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="Profile"  Style="{StaticResource ButtonTheme}">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Profile " Margin="-15,7,10,0" FontWeight="Bold"></TextBlock>
+                            <TextBlock Text="Requests"  FontWeight="Bold"></TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <Button  Command="{Binding NavigateToNewMeetingCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="NewMeeting"  Style="{StaticResource ButtonTheme}">
+                    <Button  Command="{Binding NavigateToCreateUserCommand }" Visibility="{Binding UsersButtonVisibility}" FontSize="16" Width="150" Height="50"  CommandParameter="CreateUser" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource ButtonTheme}" >
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="New meeting" Margin="20,9,29,0" FontWeight="Bold"></TextBlock>
+                            <TextBlock Text="Create user"  FontWeight="Bold"></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button  Command="{Binding NavigateToSchedulerCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="Scheduler"  Style="{StaticResource ButtonTheme}">
+                    <Button  Command="{Binding NavigateToProfleCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="Profile" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Style="{StaticResource ButtonTheme}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Scheduler" Margin="-14,9,29,0" FontWeight="Bold"></TextBlock>
+                            <TextBlock Text="Profile "  FontWeight="Bold"></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button  Command="{Binding NavigateToSpecialEventCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="SpecialEvent"  Style="{StaticResource ButtonTheme}">
+
+                    <Button  Command="{Binding NavigateToNewMeetingCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="NewMeeting" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource ButtonTheme}">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Add special event" Margin="-14,9,29,0" FontWeight="Bold"></TextBlock>
+                            <TextBlock Text="New meeting"  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button  Command="{Binding NavigateToSchedulerCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="Scheduler" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource ButtonTheme}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Scheduler"  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button  Command="{Binding NavigateToSpecialEventCommand}" Visibility="{Binding UsersButtonVisibility}" FontSize="16"  Width="150" Height="50" CommandParameter="SpecialEvent"  Style="{StaticResource ButtonTheme}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Add special event"  FontWeight="Bold"></TextBlock>
                         </StackPanel>
                     </Button>
                 </UniformGrid>

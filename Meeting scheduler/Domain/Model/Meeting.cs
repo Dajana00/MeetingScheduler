@@ -17,13 +17,16 @@ namespace MeetingScheduler.Domain.Model
     public class Meeting
     {
         public int Id { get; set; }
-        public User Host { get; set; } 
+        public string Name { get; set; }
+        public User Host { get; set; }
+        public int HostId { get; set; } 
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public MeetingType Type { get; set; } 
-        public string Location { get; set; } 
-        public string ColorHex { get; set; } = "#6cf5b7"; 
-        public List<User> Participants { get; set; } = new List<User>();
+        public MeetingType Type { get; set; }
+        public string Location { get; set; }
+        public string ColorHex { get; set; } = "#f7b0f6";
+
+        public List<MeetingUser> MeetingUsers { get; set; } = new List<MeetingUser>();
 
         [NotMapped]
         public System.Windows.Media.Brush Color
@@ -31,17 +34,18 @@ namespace MeetingScheduler.Domain.Model
             get => (System.Windows.Media.Brush)new BrushConverter().ConvertFromString(ColorHex);
             set => ColorHex = value.ToString();
         }
-        public Meeting() { }    
 
-        public Meeting(User host, DateTime startTime, DateTime endTime, MeetingType type, string location, List<User> participants)
+        public Meeting() { }
+
+        public Meeting(string name, User host, DateTime startTime, DateTime endTime, MeetingType type, string location)
         {
+            Name = name;
             Host = host;
             StartTime = startTime;
             EndTime = endTime;
             Type = type;
             Location = location;
-            ColorHex = "#6cf5b7";
-            Participants = participants;
-        }   
+            ColorHex = "#f7b0f6";
+        }
     }
 }

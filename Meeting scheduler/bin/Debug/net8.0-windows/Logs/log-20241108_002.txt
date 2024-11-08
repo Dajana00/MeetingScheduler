@@ -1,0 +1,29 @@
+2024-11-08 14:35:02.752 +01:00 [INF] User login attempt: nina
+2024-11-08 14:35:04.048 +01:00 [INF] User 'nina' successfully logged in.
+2024-11-08 14:35:04.416 +01:00 [INF] Retrieved all meetings.
+2024-11-08 14:35:04.502 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 14:35:04.514 +01:00 [INF] Retrieved all special events.
+2024-11-08 14:35:04.531 +01:00 [INF] Retrieved all meetings.
+2024-11-08 14:35:04.532 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 14:35:11.338 +01:00 [INF] Retrieved all users.
+2024-11-08 14:35:11.361 +01:00 [INF] Retrieved all leave requests.
+2024-11-08 14:35:22.757 +01:00 [INF] Retrieved all users.
+2024-11-08 14:37:35.929 +01:00 [INF] Meeting 'sastanak' successfully created.
+2024-11-08 14:38:04.498 +01:00 [INF] Meeting 'sastanak11' successfully created.
+2024-11-08 14:38:15.038 +01:00 [INF] User login attempt: daks
+2024-11-08 14:38:15.045 +01:00 [INF] User 'daks' successfully logged in.
+2024-11-08 14:38:15.077 +01:00 [INF] Retrieved all meetings.
+2024-11-08 14:38:15.083 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 14:38:15.086 +01:00 [INF] Retrieved all special events.
+2024-11-08 14:38:15.087 +01:00 [INF] Retrieved all meetings.
+2024-11-08 14:38:15.088 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 14:38:15.091 +01:00 [INF] Generated subject for meeting 'sastanak'
+2024-11-08 14:38:15.092 +01:00 [INF] Generated subject for meeting 'sastanak11'
+2024-11-08 14:38:28.342 +01:00 [INF] User login attempt: kanda
+2024-11-08 14:38:28.346 +01:00 [INF] User 'kanda' successfully logged in.
+2024-11-08 14:38:28.394 +01:00 [INF] Retrieved meetings for user with ID '4'.
+2024-11-08 14:38:28.416 +01:00 [INF] Retrieved leave requests for user 4.
+2024-11-08 14:38:28.420 +01:00 [INF] Retrieved all special events.
+2024-11-08 14:38:28.422 +01:00 [INF] Retrieved meetings for user with ID '4'.
+2024-11-08 14:38:28.423 +01:00 [INF] Retrieved leave requests for user 4.
+2024-11-08 14:39:11.143 +01:00 [INF] Application started.

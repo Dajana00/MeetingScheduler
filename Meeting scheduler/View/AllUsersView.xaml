@@ -9,7 +9,8 @@
       Title="AllUsersView">
 
     <Grid>
-        <DataGrid ItemsSource="{Binding People}" AutoGenerateColumns="False" Margin="10" Style="{StaticResource DataGridStyle}">
+        <DataGrid ItemsSource="{Binding People}"  CanUserAddRows="False"
+                  AutoGenerateColumns="False" Margin="10" Style="{StaticResource DataGridStyle}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
                 <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
@@ -33,6 +34,15 @@
                         <DataTemplate>
                             <Button Content="Delete" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                     CommandParameter="{Binding}" Style="{StaticResource ButtonTheme}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!-- Dugme za Edit -->
+                <DataGridTemplateColumn Header="Statistics">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Statistics" Command="{Binding DataContext.StatisticsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                      CommandParameter="{Binding}" Style="{StaticResource ButtonTheme}"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

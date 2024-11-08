@@ -10,22 +10,40 @@
     <Compile Update="CustomControls\BindablePasswordBox.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\CreateSpecialEventView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AllUsersView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CreateLeaveRequest.xaml.cs">
+    <Compile Update="View\CreateLeaveRequestView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\CreateUser.xaml.cs">
+    <Compile Update="View\CreateMeetingView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CreateUserView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditProfileDataView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\LeaveStatistics.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\MonthlyScheduler.xaml.cs">
+    <Compile Update="View\ResetPasswordView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\UsersRequests.xaml.cs">
+    <Compile Update="View\UserProfileView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PendingLeaveRequests.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\WeeklySchedulerView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -42,22 +60,43 @@
     <Page Update="Themes\DataGridStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Themes\InputFieldTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CreateSpecialEventView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AllUsersView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\CreateLeaveRequest.xaml">
+    <Page Update="View\CreateLeaveRequestView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\CreateUser.xaml">
+    <Page Update="View\CreateMeetingView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CreateUserView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditProfileDataView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\LeaveStatistics.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\MonthlyScheduler.xaml">
+    <Page Update="View\ResetPasswordView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\UsersRequests.xaml">
+    <Page Update="View\UserProfileView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PendingLeaveRequests.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\WeeklySchedulerView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

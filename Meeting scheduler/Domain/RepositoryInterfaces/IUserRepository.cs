@@ -13,11 +13,11 @@ namespace MeetingScheduler.Domain.RepositoryInterfaces
     {
          
         void Create(User entity);
-        void Edit(User entity);
+        void Update(User entity);
         void Remove(User entity);
         bool Login(NetworkCredential credential);
-        int GetId(User person);
         User GetById(int id);
+        User GetByEmailAndUsername(string email,string username);
         List<User> GetAll();
             
     }

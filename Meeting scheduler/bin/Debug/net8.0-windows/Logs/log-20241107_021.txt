@@ -1,0 +1,12 @@
+2024-11-07 16:33:22.534 +01:00 [INF] User login attempt: daks
+2024-11-07 16:33:24.767 +01:00 [INF] User 'daks' successfully logged in.
+2024-11-07 16:33:25.434 +01:00 [INF] Retrieved all meetings.
+2024-11-07 16:33:25.650 +01:00 [INF] Retrieved all meetings.
+2024-11-07 16:33:25.726 +01:00 [INF] Generated subject for meeting 'Sastanak1'
+2024-11-07 16:33:36.609 +01:00 [INF] User login attempt: kanda
+2024-11-07 16:33:36.613 +01:00 [INF] User 'kanda' successfully logged in.
+2024-11-07 16:33:36.754 +01:00 [INF] Retrieved meetings for user with ID '3'.
+2024-11-07 16:33:36.820 +01:00 [INF] Retrieved meetings for user with ID '3'.
+2024-11-07 16:33:36.835 +01:00 [INF] Generated subject for meeting 'Sastanak1'
+2024-11-07 16:59:00.444 +01:00 [INF] Application started.
+2024-11-07 17:02:50.289 +01:00 [INF] Application started.

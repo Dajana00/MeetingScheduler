@@ -1,6 +1,0 @@
-2024-10-28 17:06:39.906 +01:00 [INF] User login try: daks
-2024-10-28 17:06:40.921 +01:00 [INF] User successifully logged in
-2024-10-28 17:06:43.240 +01:00 [INF] Searh for person with {id}
-2024-10-28 17:06:43.241 +01:00 [INF] Searh for person with {id}
-2024-10-28 17:06:43.242 +01:00 [INF] Searh for person with {id}
-2024-10-28 17:06:43.242 +01:00 [INF] Searh for person with {id}

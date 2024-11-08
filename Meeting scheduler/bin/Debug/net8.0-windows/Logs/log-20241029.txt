@@ -1,1 +1,0 @@
-2024-10-29 09:52:22.397 +01:00 [INF] Application started.

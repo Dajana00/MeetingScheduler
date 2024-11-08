@@ -30,11 +30,11 @@ namespace MeetingScheduler.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("ApprovalDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("ApprovedByAdminId")
+                    b.Property<int?>("CheckedByAdminId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("CheckedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("ColorHex")
                         .IsRequired()
@@ -59,6 +59,90 @@ namespace MeetingScheduler.Migrations
                     b.ToTable("Leaves", (string)null);
 
                     b.UseTptMappingStrategy();
+                });
+
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.Meeting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ColorHex")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HostId");
+
+                    b.ToTable("Meetings", (string)null);
+                });
+
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.MeetingUser", b =>
+                {
+                    b.Property<int>("MeetingId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MeetingId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MeetingUser");
+                });
+
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.SpecialEvent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ColorHex")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EventType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SpecialEvents", (string)null);
                 });
 
             modelBuilder.Entity("MeetingScheduler.Domain.Model.User", b =>
@@ -123,20 +207,6 @@ namespace MeetingScheduler.Migrations
                     b.ToTable("SickLeaves", (string)null);
                 });
 
-            modelBuilder.Entity("MeetingScheduler.Domain.Model.SpecialEvent", b =>
-                {
-                    b.HasBaseType("MeetingScheduler.Domain.Model.Leave");
-
-                    b.Property<int>("EventType")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.ToTable("SpecialEvents", (string)null);
-                });
-
             modelBuilder.Entity("MeetingScheduler.Domain.Model.Vacation", b =>
                 {
                     b.HasBaseType("MeetingScheduler.Domain.Model.Leave");
@@ -159,6 +229,36 @@ namespace MeetingScheduler.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.Meeting", b =>
+                {
+                    b.HasOne("MeetingScheduler.Domain.Model.User", "Host")
+                        .WithMany()
+                        .HasForeignKey("HostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Host");
+                });
+
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.MeetingUser", b =>
+                {
+                    b.HasOne("MeetingScheduler.Domain.Model.Meeting", "Meeting")
+                        .WithMany("MeetingUsers")
+                        .HasForeignKey("MeetingId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("MeetingScheduler.Domain.Model.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Meeting");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MeetingScheduler.Domain.Model.DayOff", b =>
                 {
                     b.HasOne("MeetingScheduler.Domain.Model.Leave", null)
@@ -177,15 +277,6 @@ namespace MeetingScheduler.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MeetingScheduler.Domain.Model.SpecialEvent", b =>
-                {
-                    b.HasOne("MeetingScheduler.Domain.Model.Leave", null)
-                        .WithOne()
-                        .HasForeignKey("MeetingScheduler.Domain.Model.SpecialEvent", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MeetingScheduler.Domain.Model.Vacation", b =>
                 {
                     b.HasOne("MeetingScheduler.Domain.Model.Leave", null)
@@ -193,6 +284,11 @@ namespace MeetingScheduler.Migrations
                         .HasForeignKey("MeetingScheduler.Domain.Model.Vacation", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MeetingScheduler.Domain.Model.Meeting", b =>
+                {
+                    b.Navigation("MeetingUsers");
                 });
 #pragma warning restore 612, 618
         }

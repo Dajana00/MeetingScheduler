@@ -1,4 +1,5 @@
-﻿using MeetingScheduler.ViewModel;
+﻿using MeetingScheduler.Service;
+using MeetingScheduler.ViewModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,7 +8,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace MeetingScheduler
@@ -20,7 +20,8 @@ namespace MeetingScheduler
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowViewModel(this,MainFrame.NavigationService);
+            var navigationService = new NavigationService(this);
+            DataContext = new MainWindowViewModel(this,navigationService);
         }
 
     }

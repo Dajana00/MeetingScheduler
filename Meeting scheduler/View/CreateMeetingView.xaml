@@ -1,0 +1,153 @@
+﻿<Page x:Class="MeetingScheduler.View.CreateMeetingView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MeetingScheduler.View"
+      mc:Ignorable="d" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CreateMeetingView">
+
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="Create New Meeting" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <TextBlock Text="Meeting Name:" />
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,15" />
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Start Time:" />
+                <TextBlock Text="Hour:" Margin="80 0 0 0"/>
+                <TextBlock Text="Minute:" Margin="40 0 0 0"/>
+            </StackPanel>
+           
+            <StackPanel Orientation="Horizontal">
+                <DatePicker SelectedDate="{Binding StartDate , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" DisplayDateStart="{x:Static sys:DateTime.Now}" Margin="0,5,5,15"  />
+                <ComboBox SelectedValue="{Binding StartHour}" SelectedValuePath="Content" Width="50" Margin="0,5,5,15">
+                  
+                    <ComboBoxItem Content="00" />
+                    <ComboBoxItem Content="01" />
+                    <ComboBoxItem Content="02" />
+                    <ComboBoxItem Content="03" />
+                    <ComboBoxItem Content="04" />
+                    <ComboBoxItem Content="05" />
+                    <ComboBoxItem Content="06" />
+                    <ComboBoxItem Content="07" />
+                    <ComboBoxItem Content="08" />
+                    <ComboBoxItem Content="09" />
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="11" />
+                    <ComboBoxItem Content="12" />
+                    <ComboBoxItem Content="13" />
+                    <ComboBoxItem Content="14" />
+                    <ComboBoxItem Content="15" />
+                    <ComboBoxItem Content="16" />
+                    <ComboBoxItem Content="17" />
+                    <ComboBoxItem Content="18" />
+                    <ComboBoxItem Content="19" />
+                    <ComboBoxItem Content="20" />
+                    <ComboBoxItem Content="21" />
+                    <ComboBoxItem Content="22" />
+                    <ComboBoxItem Content="23" />
+
+                </ComboBox>
+                <ComboBox SelectedValue="{Binding StartMinute}" SelectedValuePath="Content" Width="50" Margin="0,5,0,15">
+                    <ComboBoxItem Content="00" />
+                    <ComboBoxItem Content="00" />
+                    <ComboBoxItem Content="05" />
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="15" />
+                    <ComboBoxItem Content="20" />
+                    <ComboBoxItem Content="25" />
+                    <ComboBoxItem Content="30" />
+                    <ComboBoxItem Content="35" />
+                    <ComboBoxItem Content="40" />
+                    <ComboBoxItem Content="45" />
+                    <ComboBoxItem Content="50" />
+                    <ComboBoxItem Content="55" />
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="End Time:" />
+                <TextBlock Text="Hour:" Margin="80 0 0 0"/>
+                <TextBlock Text="Minute:" Margin="40 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <DatePicker SelectedDate="{Binding EndDate , Mode=TwoWay , UpdateSourceTrigger=PropertyChanged}" DisplayDateStart="{Binding StartDate}" Margin="0,5,5,15"/>
+                <ComboBox SelectedValue="{Binding EndHour}" SelectedValuePath="Content" Width="50" Margin="0,5,5,15">
+                    <ComboBoxItem Content="00" />
+                    <ComboBoxItem Content="01" />
+                    <ComboBoxItem Content="02" />
+                    <ComboBoxItem Content="03" />
+                    <ComboBoxItem Content="04" />
+                    <ComboBoxItem Content="05" />
+                    <ComboBoxItem Content="06" />
+                    <ComboBoxItem Content="07" />
+                    <ComboBoxItem Content="08" />
+                    <ComboBoxItem Content="09" />
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="11" />
+                    <ComboBoxItem Content="12" />
+                    <ComboBoxItem Content="13" />
+                    <ComboBoxItem Content="14" />
+                    <ComboBoxItem Content="15" />
+                    <ComboBoxItem Content="16" />
+                    <ComboBoxItem Content="17" />
+                    <ComboBoxItem Content="18" />
+                    <ComboBoxItem Content="19" />
+                    <ComboBoxItem Content="20" />
+                    <ComboBoxItem Content="21" />
+                    <ComboBoxItem Content="22" />
+                    <ComboBoxItem Content="23" />
+                </ComboBox>
+            <ComboBox SelectedValue="{Binding EndMinute}" SelectedValuePath="Content" Width="50" Margin="0,5,0,15">
+            <ComboBoxItem Content="00" />
+                    <ComboBoxItem Content="00" />
+                    <ComboBoxItem Content="05" />
+                    <ComboBoxItem Content="10" />
+                    <ComboBoxItem Content="15" />
+                    <ComboBoxItem Content="20" />
+                    <ComboBoxItem Content="25" />
+                    <ComboBoxItem Content="30" />
+                    <ComboBoxItem Content="35" />
+                    <ComboBoxItem Content="40" />
+                    <ComboBoxItem Content="45" />
+                    <ComboBoxItem Content="50" />
+                    <ComboBoxItem Content="55" />
+        </ComboBox>
+    </StackPanel>
+            <TextBlock Text="Meeting Type:" />
+            <ComboBox SelectedItem="{Binding MeetingType, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,15">
+                <ComboBoxItem Content="Online" />
+                <ComboBoxItem Content="Offline" />
+            </ComboBox>
+
+          
+            <TextBlock Text="Location (if Offline):" />
+            <TextBox Text="{Binding Location, UpdateSourceTrigger=PropertyChanged}" Margin="0,5,0,15" />
+
+          
+            <TextBlock Text="Select Participants:" />
+            <ListBox ItemsSource="{Binding AllUsers}" SelectionMode="Multiple" Margin="0,5,0,15" SelectionChanged="OnSelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}" />
+                            <TextBlock Text=" " />
+                            <TextBlock Text="{Binding LastName}" />
+                        </StackPanel>
+                       
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- Komande za čuvanje i otkazivanje -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Save" Command="{Binding SaveMeetingCommand}" Width="100" Margin="10"/>
+                <Button Content="Cancel" Command="{Binding CancelCommand}" Width="100" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

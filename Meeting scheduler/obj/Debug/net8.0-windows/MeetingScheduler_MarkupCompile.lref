@@ -1,11 +1,16 @@
 ﻿
-FC:\Users\User\Desktop\MeetingScheduler\App.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\CustomControls\BindablePasswordBox.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\MainWindow.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\View\AllUsersView.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\View\CreateLeaveRequest.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\View\CreateUser.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\View\LoginView.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\View\MonthlyScheduler.xaml;;
-FC:\Users\User\Desktop\MeetingScheduler\View\UsersRequests.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\App.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\CustomControls\BindablePasswordBox.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\MainWindow.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\AllUsersView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateLeaveRequestView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateMeetingView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateSpecialEventView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\CreateUserView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\EditProfileDataView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\LeaveStatistics.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\LoginView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\PendingLeaveRequests.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\ResetPasswordView.xaml;;
+FC:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\View\WeeklySchedulerView.xaml;;
 

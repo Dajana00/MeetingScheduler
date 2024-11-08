@@ -23,6 +23,7 @@ namespace MeetingScheduler.View
         public LoginView()
         {
             InitializeComponent();
+            this.DataContext = new LoginViewModel(this);
         }
        
     }

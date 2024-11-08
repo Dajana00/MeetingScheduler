@@ -9,6 +9,7 @@
 
                 <ResourceDictionary Source="Themes/ButtonTheme.xaml" />
                 <ResourceDictionary Source="Themes/DataGridStyle.xaml" />
+                <ResourceDictionary Source="Themes/InputFieldTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

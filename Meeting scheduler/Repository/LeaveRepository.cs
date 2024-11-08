@@ -25,12 +25,22 @@ namespace MeetingScheduler.Repository
         {
             if (leave.User != null)
             {
-                _context.Attach(leave.User); // Ovime označavate da `User` već postoji
+                var trackedUser = _context.Users.Local.FirstOrDefault(u => u.Id == leave.User.Id);
+
+                if (trackedUser != null)
+                {
+                    leave.User = trackedUser;
+                }
+                else
+                {
+                    _context.Attach(leave.User);
+                }
             }
 
             _dbSet.Add(leave);
             Save();
         }
+
 
         public void Remove(Leave leave)
         {
@@ -50,24 +60,47 @@ namespace MeetingScheduler.Repository
                 ToList();
         }
 
-        public List<Leave> GetEventsByDate(DateTime date)
+        public List<Leave> GetAllPending()
+        {
+            return _dbSet.Include(l => l.User).Where(l=>l.Status == Status.PENDING).
+                ToList();
+        }
+        public List<Leave> GetAllApproved()
+        {
+            return _dbSet.Include(l => l.User).Where(l => l.Status == Status.APPROVED).
+                ToList();
+        }
+        public List<Leave> GetByDate(DateTime date)
         {
             return _dbSet.Include(l => l.User)
                 .Where(leave =>
                     leave.StartDate <= date &&
-                    leave.EndDate >= date)
+                    leave.EndDate >= date && leave.Status == Status.APPROVED)
+                .ToList();
+        }
+        public List<Leave> GetByUserId(int id)
+        {
+            return _dbSet.Include(l => l.User)
+                .Where(leave =>leave.User.Id == id && leave.Status == Status.APPROVED) 
+                .ToList();
+        }
+        public Leave GetById(int id)
+        {
+            return _dbSet.Find(id);
+        }
+        public List<Leave> GetByDateForUser(DateTime date, int id)
+        {
+            return _dbSet.Include(l => l.User)
+                .Where(leave =>
+                    leave.StartDate <= date &&
+                    leave.EndDate >= date && leave.User.Id ==id && leave.Status == Status.APPROVED)
                 .ToList();
         }
 
-      
-
-        public List<Leave> GetEventsByDateForUser(DateTime date, int id)
+        public void DeleteById(int id)
         {
-            return _dbSet.Include(l => l.User)
-                .Where(leave =>
-                    leave.StartDate <= date &&
-                    leave.EndDate >= date && leave.User.Id ==id)
-                .ToList();
+            _dbSet.Remove(GetById(id));
+            Save();
         }
     }
 }

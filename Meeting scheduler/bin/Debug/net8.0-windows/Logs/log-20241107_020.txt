@@ -1,0 +1,6 @@
+2024-11-07 16:31:29.688 +01:00 [INF] User login attempt: daks
+2024-11-07 16:31:31.385 +01:00 [INF] User 'daks' successfully logged in.
+2024-11-07 16:31:31.903 +01:00 [INF] Retrieved all meetings.
+2024-11-07 16:31:32.078 +01:00 [INF] Retrieved all meetings.
+2024-11-07 16:31:32.127 +01:00 [INF] Generated subject for meeting 'Sastanak1'
+2024-11-07 16:33:12.303 +01:00 [INF] Application started.

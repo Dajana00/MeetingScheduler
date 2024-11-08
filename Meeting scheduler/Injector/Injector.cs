@@ -15,7 +15,9 @@ namespace MeetingScheduler.Injector
         {
             {typeof(ILeaveRepository), new LeaveRepository()},
             {typeof(IUserRepository), new UserRepository()},
-            
+            {typeof(IMeetingRepository), new MeetingRepository()},
+            {typeof(ISpecialEventRepository), new SpecialEventRepository()},
+
         };
 
         public static T CreateInstance<T>()

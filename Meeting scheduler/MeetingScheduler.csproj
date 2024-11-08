@@ -9,20 +9,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\calendar.png" />
+    <None Remove="Resources\plus.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Exchange.WebServices" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
     <PackageReference Include="Serilog" Version="4.1.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="27.1.57" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Logs\" />
+    <Resource Include="Resources\calendar.png" />
+    <Resource Include="Resources\plus.jpeg" />
   </ItemGroup>
 
 </Project>

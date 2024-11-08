@@ -1,0 +1,18 @@
+2024-11-07 17:23:55.607 +01:00 [INF] User login attempt: nina
+2024-11-07 17:23:58.218 +01:00 [INF] User 'nina' successfully logged in.
+2024-11-07 17:23:58.773 +01:00 [INF] Retrieved all meetings.
+2024-11-07 17:23:58.898 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-07 17:23:58.968 +01:00 [INF] Retrieved all special events.
+2024-11-07 17:23:59.055 +01:00 [INF] Retrieved all meetings.
+2024-11-07 17:23:59.104 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-07 17:23:59.140 +01:00 [INF] Generated subject for meeting 'Sastanak1'
+2024-11-07 17:24:42.393 +01:00 [INF] Retrieved all users.
+2024-11-07 17:24:42.440 +01:00 [INF] Retrieved all leave requests.
+2024-11-07 17:24:45.092 +01:00 [INF] Retrieved all pending leave requests.
+2024-11-07 17:24:47.231 +01:00 [INF] Retrieved all users.
+2024-11-07 17:24:48.554 +01:00 [INF] Retrieved all meetings.
+2024-11-07 17:24:48.572 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-07 17:24:48.582 +01:00 [INF] Retrieved all special events.
+2024-11-07 17:24:48.596 +01:00 [INF] Retrieved all meetings.
+2024-11-07 17:24:48.620 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-07 17:24:48.622 +01:00 [INF] Generated subject for meeting 'Sastanak1'

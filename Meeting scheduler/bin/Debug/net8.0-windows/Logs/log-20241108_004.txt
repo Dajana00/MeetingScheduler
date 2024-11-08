@@ -1,0 +1,120 @@
+2024-11-08 14:47:00.446 +01:00 [INF] User login attempt: kanda
+2024-11-08 14:47:01.624 +01:00 [INF] User 'kanda' successfully logged in.
+2024-11-08 14:47:02.015 +01:00 [INF] Retrieved meetings for user with ID '4'.
+2024-11-08 14:47:02.073 +01:00 [INF] Retrieved leave requests for user 4.
+2024-11-08 14:47:02.097 +01:00 [INF] Retrieved all special events.
+2024-11-08 14:47:02.107 +01:00 [INF] Retrieved meetings for user with ID '4'.
+2024-11-08 14:47:02.109 +01:00 [INF] Retrieved leave requests for user 4.
+2024-11-08 14:47:06.059 +01:00 [INF] Retrieved all users.
+2024-11-08 14:47:36.545 +01:00 [ERR] Error creating meeting ''
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Name', table 'MeetingSchedule.dbo.Meetings'; column does not allow nulls. INSERT fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+ClientConnectionId:1cb568fd-a930-4230-bbe9-1522e5e2e25f
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at MeetingScheduler.Repository.MeetingRepository.Save() in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Repository\MeetingRepository.cs:line 97
+   at MeetingScheduler.Repository.MeetingRepository.Create(Meeting meeting) in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Repository\MeetingRepository.cs:line 64
+   at MeetingScheduler.Service.MeetingService.Create(Meeting meeting) in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Service\MeetingService.cs:line 24
+2024-11-08 14:47:43.503 +01:00 [INF] User login attempt: daks
+2024-11-08 14:47:43.510 +01:00 [INF] User 'daks' successfully logged in.
+2024-11-08 14:47:43.580 +01:00 [INF] Retrieved all meetings.
+2024-11-08 14:47:43.601 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 14:47:43.604 +01:00 [INF] Retrieved all special events.
+2024-11-08 14:47:43.616 +01:00 [INF] Retrieved all meetings.
+2024-11-08 14:47:43.625 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 14:47:43.629 +01:00 [INF] Generated subject for meeting 'sastanak'
+2024-11-08 14:47:43.630 +01:00 [INF] Generated subject for meeting 'sastanak11'
+2024-11-08 14:49:22.242 +01:00 [INF] User login attempt: kanda
+2024-11-08 14:49:22.258 +01:00 [INF] User 'kanda' successfully logged in.
+2024-11-08 14:49:22.283 +01:00 [INF] Retrieved meetings for user with ID '4'.
+2024-11-08 14:49:22.294 +01:00 [INF] Retrieved leave requests for user 4.
+2024-11-08 14:49:22.297 +01:00 [INF] Retrieved all special events.
+2024-11-08 14:49:22.299 +01:00 [INF] Retrieved meetings for user with ID '4'.
+2024-11-08 14:49:22.301 +01:00 [INF] Retrieved leave requests for user 4.
+2024-11-08 14:49:23.826 +01:00 [INF] Retrieved all users.
+2024-11-08 14:49:59.034 +01:00 [ERR] Error creating meeting 'Razgovor'
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Name', table 'MeetingSchedule.dbo.Meetings'; column does not allow nulls. UPDATE fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+ClientConnectionId:1cb568fd-a930-4230-bbe9-1522e5e2e25f
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at MeetingScheduler.Repository.MeetingRepository.Save() in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Repository\MeetingRepository.cs:line 97
+   at MeetingScheduler.Repository.MeetingRepository.Create(Meeting meeting) in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Repository\MeetingRepository.cs:line 64
+   at MeetingScheduler.Service.MeetingService.Create(Meeting meeting) in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Service\MeetingService.cs:line 24
+2024-11-08 14:51:17.444 +01:00 [ERR] Error creating meeting 'Razgovor'
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Name', table 'MeetingSchedule.dbo.Meetings'; column does not allow nulls. UPDATE fails.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDataReader.Read()
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+ClientConnectionId:1cb568fd-a930-4230-bbe9-1522e5e2e25f
+Error Number:515,State:2,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSet(Int32 startCommandIndex, RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.Consume(RelationalDataReader reader)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__112_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges()
+   at MeetingScheduler.Repository.MeetingRepository.Save() in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Repository\MeetingRepository.cs:line 97
+   at MeetingScheduler.Repository.MeetingRepository.Create(Meeting meeting) in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Repository\MeetingRepository.cs:line 64
+   at MeetingScheduler.Service.MeetingService.Create(Meeting meeting) in C:\Users\User\Desktop\MeetingScheduler\Meeting scheduler\Service\MeetingService.cs:line 24
+2024-11-08 15:06:23.983 +01:00 [INF] Application started.
+2024-11-08 15:18:54.729 +01:00 [INF] Application started.

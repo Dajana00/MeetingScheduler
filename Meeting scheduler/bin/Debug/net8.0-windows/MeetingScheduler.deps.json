@@ -11,10 +11,12 @@
           "Microsoft.EntityFrameworkCore": "8.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.10",
+          "Microsoft.Exchange.WebServices": "2.2.0",
           "Microsoft.Extensions.Logging.Console": "8.0.1",
           "Serilog": "4.1.0",
           "Serilog.Extensions.Logging": "8.0.0",
-          "Serilog.Sinks.File": "6.0.0"
+          "Serilog.Sinks.File": "6.0.0",
+          "Syncfusion.SfScheduler.WPF": "27.1.57"
         },
         "runtime": {
           "MeetingScheduler.dll": {}
@@ -420,6 +422,18 @@
           "Microsoft.EntityFrameworkCore.Design": "8.0.10"
         }
       },
+      "Microsoft.Exchange.WebServices/2.2.0": {
+        "runtime": {
+          "lib/40/Microsoft.Exchange.WebServices.Auth.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.913.0"
+          },
+          "lib/40/Microsoft.Exchange.WebServices.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.913.15"
+          }
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "8.0.0"
@@ -806,6 +820,74 @@
           }
         }
       },
+      "Syncfusion.Licensing/27.1.57": {
+        "runtime": {
+          "lib/net8.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "27.1.57.0",
+            "fileVersion": "27.1.57.0"
+          }
+        }
+      },
+      "Syncfusion.SfBusyIndicator.WPF/27.1.57": {
+        "dependencies": {
+          "Syncfusion.Licensing": "27.1.57"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.SfBusyIndicator.WPF.dll": {
+            "assemblyVersion": "27.1.57.0",
+            "fileVersion": "27.1.57.0"
+          }
+        }
+      },
+      "Syncfusion.SfInput.WPF/27.1.57": {
+        "dependencies": {
+          "Syncfusion.Licensing": "27.1.57",
+          "Syncfusion.Shared.WPF": "27.1.57"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.SfInput.WPF.dll": {
+            "assemblyVersion": "27.1.57.0",
+            "fileVersion": "27.1.57.0"
+          }
+        }
+      },
+      "Syncfusion.SfScheduler.WPF/27.1.57": {
+        "dependencies": {
+          "Syncfusion.Licensing": "27.1.57",
+          "Syncfusion.SfBusyIndicator.WPF": "27.1.57",
+          "Syncfusion.SfInput.WPF": "27.1.57",
+          "Syncfusion.SfSkinManager.WPF": "27.1.57",
+          "Syncfusion.Shared.WPF": "27.1.57"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.SfScheduler.WPF.dll": {
+            "assemblyVersion": "27.1.57.0",
+            "fileVersion": "27.1.57.0"
+          }
+        }
+      },
+      "Syncfusion.SfSkinManager.WPF/27.1.57": {
+        "dependencies": {
+          "Syncfusion.Licensing": "27.1.57"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.SfSkinManager.WPF.dll": {
+            "assemblyVersion": "27.1.57.0",
+            "fileVersion": "27.1.57.0"
+          }
+        }
+      },
+      "Syncfusion.Shared.WPF/27.1.57": {
+        "dependencies": {
+          "Syncfusion.Licensing": "27.1.57"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+            "assemblyVersion": "27.1.57.0",
+            "fileVersion": "27.1.57.0"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {},
       "System.Collections.Immutable/6.0.0": {
         "dependencies": {
@@ -1140,6 +1222,13 @@
       "path": "microsoft.entityframeworkcore.tools/8.0.10",
       "hashPath": "microsoft.entityframeworkcore.tools.8.0.10.nupkg.sha512"
     },
+    "Microsoft.Exchange.WebServices/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NlkaTD0uWtg9VbiWq0VDWMBPzHFknH3tmstrxt0acrT09LBGqATTjRpsGOODz6tUdX7/dehBinxsf75U5Uw/+A==",
+      "path": "microsoft.exchange.webservices/2.2.0",
+      "hashPath": "microsoft.exchange.webservices.2.2.0.nupkg.sha512"
+    },
     "Microsoft.Extensions.Caching.Abstractions/8.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1370,6 +1459,48 @@
       "sha512": "sha512-lxjg89Y8gJMmFxVkbZ+qDgjl+T4yC5F7WSLTvA+5q0R04tfKVLRL/EHpYoJ/MEQd2EeCKDuylBIVnAYMotmh2A==",
       "path": "serilog.sinks.file/6.0.0",
       "hashPath": "serilog.sinks.file.6.0.0.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/27.1.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eKbMg5b7nlItNO5JZNRZe51LLiPmxtNHXypc1ViSuSqjSpo7onUTm2AuPrPKdrK2KzwA3ewBNTFlg3Brxw+auw==",
+      "path": "syncfusion.licensing/27.1.57",
+      "hashPath": "syncfusion.licensing.27.1.57.nupkg.sha512"
+    },
+    "Syncfusion.SfBusyIndicator.WPF/27.1.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qAWPDEQ5d4KSDsYJdXnGxhP8r6c8e4qpO8g31vPTJ9sm+EAti38Xaa8u4W6nw6fnzRST723WuIQGP2H8qQubWg==",
+      "path": "syncfusion.sfbusyindicator.wpf/27.1.57",
+      "hashPath": "syncfusion.sfbusyindicator.wpf.27.1.57.nupkg.sha512"
+    },
+    "Syncfusion.SfInput.WPF/27.1.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8kFFMEAQokCro/KDVI/0QkAeJvJDBxaCZD5j4aSI/jRcjFSozlRDFLH313hCbKbAZMVags6ADph1CW21hdkQJA==",
+      "path": "syncfusion.sfinput.wpf/27.1.57",
+      "hashPath": "syncfusion.sfinput.wpf.27.1.57.nupkg.sha512"
+    },
+    "Syncfusion.SfScheduler.WPF/27.1.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u6Mock+yEwxEk2xVKPghP3X+h7JlMstGO9/sBKHCMYBkNKYw7iMfi9i5mFWgAY5Ke9W3K4e8ZVCKV59QlxlAmw==",
+      "path": "syncfusion.sfscheduler.wpf/27.1.57",
+      "hashPath": "syncfusion.sfscheduler.wpf.27.1.57.nupkg.sha512"
+    },
+    "Syncfusion.SfSkinManager.WPF/27.1.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-scejG9Lv2dpbShlhPue0q/EoQSayQVgnbHuEuNHkzdkGja7WEg5s51sT2sE+5+No4LFCzsrYyBoIfqnK0lCO3Q==",
+      "path": "syncfusion.sfskinmanager.wpf/27.1.57",
+      "hashPath": "syncfusion.sfskinmanager.wpf.27.1.57.nupkg.sha512"
+    },
+    "Syncfusion.Shared.WPF/27.1.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dcQXmE/9b6bEcyXSBrHZ5n73Q8SZagCMg0FpKe2W9IMdK7oD1qQ9iMSIFwkJKFejFnuIICQiLXFNJQIPS1RBJA==",
+      "path": "syncfusion.shared.wpf/27.1.57",
+      "hashPath": "syncfusion.shared.wpf.27.1.57.nupkg.sha512"
     },
     "System.CodeDom/4.4.0": {
       "type": "package",

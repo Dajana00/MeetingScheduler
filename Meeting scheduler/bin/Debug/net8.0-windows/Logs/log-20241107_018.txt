@@ -1,0 +1,6 @@
+2024-11-07 16:21:53.921 +01:00 [INF] User login attempt: nina
+2024-11-07 16:21:55.299 +01:00 [INF] User 'nina' successfully logged in.
+2024-11-07 16:21:55.650 +01:00 [INF] Retrieved all meetings.
+2024-11-07 16:21:56.125 +01:00 [INF] Retrieved all meetings.
+2024-11-07 16:21:58.820 +01:00 [INF] Retrieved all users.
+2024-11-07 16:23:19.755 +01:00 [INF] Application started.

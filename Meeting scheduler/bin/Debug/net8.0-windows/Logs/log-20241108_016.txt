@@ -1,0 +1,13 @@
+2024-11-08 16:35:12.563 +01:00 [INF] User login attempt: bubi
+2024-11-08 16:35:13.440 +01:00 [INF] User 'bubi' successfully logged in.
+2024-11-08 16:35:13.781 +01:00 [INF] Retrieved all meetings.
+2024-11-08 16:35:13.874 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 16:35:13.881 +01:00 [INF] Retrieved all special events.
+2024-11-08 16:35:13.893 +01:00 [INF] Retrieved all meetings.
+2024-11-08 16:35:13.894 +01:00 [INF] Retrieved all approved leave requests.
+2024-11-08 16:35:13.898 +01:00 [INF] Generated subject for leave request 'nina'.
+2024-11-08 16:35:13.901 +01:00 [INF] Generated subject for leave request 'bubi'.
+2024-11-08 16:35:13.911 +01:00 [INF] Generated subject for meeting 'Sastanak'
+2024-11-08 16:35:13.911 +01:00 [INF] Generated subject for meeting 'razogov'
+2024-11-08 16:37:14.460 +01:00 [INF] Application started.
+2024-11-08 16:37:36.659 +01:00 [INF] Application started.

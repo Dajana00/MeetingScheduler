@@ -4,20 +4,20 @@
     <Style x:Key="DataGridStyle" TargetType="DataGrid">
         <Setter Property="ColumnHeaderStyle" Value="{DynamicResource columnHeader}"></Setter>
         <Setter Property="BorderThickness" Value="1"></Setter>
-        <Setter Property="BorderBrush" Value="#9966ff"></Setter>
+        <Setter Property="BorderBrush" Value="#a1aaed"></Setter>
         <Setter Property="RowStyle" Value="{DynamicResource row}"></Setter>
         <Setter Property="CellStyle" Value="{DynamicResource cell }"></Setter>
-        <Setter Property="Background" Value="#e6ccff"></Setter>
+        <Setter Property="Background" Value="White"></Setter>
         <Setter Property="FontSize" Value="16"></Setter>
-        <Setter Property="ScrollViewer.BorderBrush" Value="#9966ff"></Setter>
+        <Setter Property="ScrollViewer.BorderBrush" Value="#a1aaed"></Setter>
         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
     </Style>
 
 
     <Style x:Key="columnHeader" TargetType="DataGridColumnHeader" >
-        <Setter Property="Background" Value="#9966ff"></Setter>
-        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Background" Value="#a1aaed"></Setter>
+        <Setter Property="Foreground" Value="Black"></Setter>
         <Setter Property="FontSize" Value="16"></Setter>
         <Setter Property="FontWeight" Value="Bold"></Setter>
         <Setter Property="Padding" Value="10 0 0 0"></Setter>
@@ -55,13 +55,13 @@
         <Setter Property="FontWeight" Value="SemiBold"></Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#9966ff"/>
-                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Background" Value="#f6edfc"/>
+                <Setter Property="Foreground" Value="Black"></Setter>
 
             </Trigger>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="#9966ff"/>
-                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Background" Value="#f6edfc"/>
+                <Setter Property="Foreground" Value="Black"></Setter>
 
             </Trigger>
         </Style.Triggers>
@@ -71,7 +71,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="#9966ff"/>
+                <Setter Property="Background" Value="#f6edfc"/>
             </Trigger>
         </Style.Triggers>
     </Style>

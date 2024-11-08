@@ -1,0 +1,6 @@
+2024-11-08 15:48:24.165 +01:00 [INF] Retrieved user with email: skocajiclj004@gmail.com
+2024-11-08 15:48:24.214 +01:00 [INF] Generated random string for password reset.
+2024-11-08 15:48:24.400 +01:00 [INF] Password reset email sent to 'skocajiclj004@gmail.com' for user 'bubi'.
+2024-11-08 15:48:24.569 +01:00 [INF] User 'bubi' successfully updated.
+2024-11-08 15:48:24.574 +01:00 [INF] Password updated for user 'bubi'.
+2024-11-08 15:51:33.071 +01:00 [INF] Application started.

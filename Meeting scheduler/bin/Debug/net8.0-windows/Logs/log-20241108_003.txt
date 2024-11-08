@@ -1,0 +1,8 @@
+2024-11-08 14:39:20.187 +01:00 [INF] User login attempt: kanda
+2024-11-08 14:39:21.309 +01:00 [INF] User 'kanda' successfully logged in.
+2024-11-08 14:39:21.608 +01:00 [INF] Retrieved meetings for user with ID '4'.
+2024-11-08 14:39:21.657 +01:00 [INF] Retrieved leave requests for user 4.
+2024-11-08 14:39:21.666 +01:00 [INF] Retrieved all special events.
+2024-11-08 14:39:21.672 +01:00 [INF] Retrieved meetings for user with ID '4'.
+2024-11-08 14:39:21.673 +01:00 [INF] Retrieved leave requests for user 4.
+2024-11-08 14:46:50.421 +01:00 [INF] Application started.

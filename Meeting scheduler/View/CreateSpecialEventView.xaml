@@ -1,0 +1,70 @@
+﻿<Page x:Class="MeetingScheduler.View.CreateSpecialEventView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MeetingScheduler.View"
+      mc:Ignorable="d" 
+      xmlns:val="clr-namespace:MeetingScheduler.Validation"
+       xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddSpecialEventView">
+    <Page.Resources>
+        <!--Validation error template-->
+        <ControlTemplate x:Key="ValidationErrorTemplate">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <AdornedElementPlaceholder Grid.Column="0" Grid.Row="0" x:Name="textBox"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="Add special event" FontSize="20" FontWeight="Bold" Margin="0,0,0,20"/>
+
+            <TextBlock Text="Event name" />
+            <TextBox x:Name="name" Width="400" 
+                Margin="0,0,0,15"  HorizontalAlignment="Center" TextAlignment="Center" FontSize="16">
+                <TextBox.Text>
+                    <Binding Path="Name" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <val:EmptyStringValidation/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <StaticResource ResourceKey="ValidationErrorTemplate" />
+                </Validation.ErrorTemplate>
+            </TextBox>
+
+            <TextBlock Text="Event Type:" />
+            <ComboBox SelectedItem="{Binding SpecialEventType, UpdateSourceTrigger=PropertyChanged}" Width="400" Margin="0,5,0,15">
+                <ComboBoxItem Content="RELIGIOUS" />
+                <ComboBoxItem Content="NATIONAL" />
+                <ComboBoxItem Content="STATE" />
+            </ComboBox>
+            <TextBlock Text="Start Time:" />
+            <DatePicker SelectedDate="{Binding StartDate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Width="400" 
+                        DisplayDateStart="{x:Static sys:DateTime.Now}"
+                        Margin="0,5,5,15" />
+
+            <TextBlock Text="End Time:" />
+            <DatePicker SelectedDate="{Binding EndDate}" Margin="0,5,5,15" Width="400" 
+                        DisplayDateStart="{Binding StartDate , UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Save" Command="{Binding SaveEventCommand}" Width="100" Margin="10"/>
+                <Button Content="Cancel" Command="{Binding CancelCommand}" Width="100" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

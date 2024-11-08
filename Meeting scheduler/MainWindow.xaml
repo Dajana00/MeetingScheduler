@@ -6,60 +6,134 @@
         xmlns:local="clr-namespace:MeetingScheduler"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1300" WindowStartupLocation="CenterScreen">
-    <Border
-        BorderBrush="MediumSlateBlue"
-        BorderThickness="2">
-        <Border.Background>
-            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                <GradientStop Color="#e6ccff" Offset="0"></GradientStop>
-                <GradientStop Color="#ccddff" Offset="0.7"></GradientStop>
-                <GradientStop Color="#ccccff" Offset="1"></GradientStop>
-            </LinearGradientBrush>
-        </Border.Background>
 
-        <Grid>
-        <Button Content="Request Leave"
-                Width="110" Height="40"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Style="{StaticResource ButtonTheme}"
-                Margin="853,48,50,50"
-                Command="{Binding NavigationCommand}" CommandParameter="CreateLeaveRequest" />
-            <Button Content="Users"
-                Width="110" Height="40"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Style="{StaticResource ButtonTheme}"
-                Margin="1103,48,50,50"
-                Command="{Binding NavigationCommand}" CommandParameter="Users" />
-            <Button Content="Requests"
-                Width="110" Height="40"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Style="{StaticResource ButtonTheme}"
-                Margin="03,48,50,50"
-                Command="{Binding NavigationCommand}" CommandParameter="Requests" />
 
-            <Button Content="Calendar"
-             Width="110" Height="40"
-             HorizontalAlignment="Center"
-             VerticalAlignment="Top"
-             Style="{StaticResource ButtonTheme}"
-             Margin="553,48,0,50"
-             Command="{Binding NavigationCommand}" CommandParameter="Calendar" />
-            <Button Content="Create user"
-                  Width="110" Height="40"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Top"
-                  Style="{StaticResource ButtonTheme}"
-                  Margin="213,48,0,50"
-                  Command="{Binding NavigationCommand}" CommandParameter="CreateUser" />
-            <Grid HorizontalAlignment="Center" Width="1216" Margin="50,118,0,76">   
+    <Window.Resources>
+        <Style 
+           TargetType="{x:Type Button}"
+           x:Key="NewButtonTheme">
+            <Style.Setters>
+                <Setter Property="Background" Value="{DynamicResource PrimaryBackgroundColor}"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"></Setter>
+                <Setter Property="BorderThickness" Value="0"></Setter>
+                <Setter Property="FontWeight" Value="Bold"></Setter>
+                <Setter Property="HorizontalAlignment" Value="Center" ></Setter>
+                <Setter Property="VerticalAlignment" Value="Center" ></Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="ButtonBorder" CornerRadius="0" Background="{TemplateBinding Background}"
+                                Width="{TemplateBinding Width}"
+                                MaxHeight="{TemplateBinding MaxHeight}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="ContentPresenter" Focusable="False" 
+                                              HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                              Margin="{TemplateBinding Padding}"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              RecognizesAccessKey="True"></ContentPresenter>
 
-                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="40,-26,0,0"></Frame>
+                            </Border>
+                            <ControlTemplate.Triggers >
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="#008080" ></Setter>
+                                    <Setter TargetName="ButtonBorder" Property="BorderThickness" Value="1" ></Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="ButtonBorder" Property="Background" Value="{DynamicResource ButtonPressedColor}"></Setter>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style.Setters>
+
+
+
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Resources/calendar.png" Width="70" Margin="0,0,120,0"></Image>
+        <TextBlock Text="Scheduler" FontSize="26" FontWeight="Bold" Foreground="#004040" VerticalAlignment="Center" Margin="120,0,0,0"></TextBlock>
+        <Button Content="Logout" Command="{Binding LogoutCommand}" Grid.Column="1" Style="{StaticResource ButtonTheme}" HorizontalAlignment="Center" Margin="750 0 0 0" Width="100" />
+
+
+
+
+        <Border Grid.Row="1" Background="#e6ccff" CornerRadius="0 70 0 0">
+
+
+            <Grid Grid.Row="1" Margin="0,20,0,0" >
+
+                <UniformGrid Rows="9">
+                    <Button  Command="{Binding NavigateToLeaveRequestCommand}" Width="150" Height="50" FontSize="16" CommandParameter="CreateLeaveRequest"  Style="{StaticResource ButtonTheme}" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Leave request"  FontWeight="Bold"/>
+                        </StackPanel>
+                    </Button>
+                    <Button  Command="{Binding NavigateToUsersCommand}" FontSize="16"  Width="150" Height="50" Visibility="{Binding UsersButtonVisibility}" CommandParameter="Users"  Style="{StaticResource ButtonTheme}" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Users"  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button  Command="{Binding NavigateToRequestsCommand}" FontSize="16"  Width="150" Height="50" 
+                             Visibility="{Binding UsersButtonVisibility}"
+                             CommandParameter="Requests"  Style="{StaticResource ButtonTheme}">
+                        <StackPanel Orientation="Horizontal">
+                            <!--Image Source="/Resources/plus.jpeg" Width="30" Margin="-20 0 0 0"-->
+                            <TextBlock Text="Requests"  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button  Command="{Binding NavigateToCreateUserCommand }" Visibility="{Binding UsersButtonVisibility}" FontSize="16" Width="150" Height="50"  CommandParameter="CreateUser" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource ButtonTheme}" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Create user"  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button  Command="{Binding NavigateToProfleCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="Profile" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Style="{StaticResource ButtonTheme}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Profile "  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button  Command="{Binding NavigateToNewMeetingCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="NewMeeting" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource ButtonTheme}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="New meeting"  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button  Command="{Binding NavigateToSchedulerCommand}" FontSize="16"  Width="150" Height="50" CommandParameter="Scheduler" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{StaticResource ButtonTheme}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Scheduler"  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button  Command="{Binding NavigateToSpecialEventCommand}" Visibility="{Binding UsersButtonVisibility}" FontSize="16"  Width="150" Height="50" CommandParameter="SpecialEvent"  Style="{StaticResource ButtonTheme}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Add special event"  FontWeight="Bold"></TextBlock>
+                        </StackPanel>
+                    </Button>
+                </UniformGrid>
+
+            </Grid>
+        </Border>
+        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Width="916" Margin="50,18,0,76">
+
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Margin="40,-26,0,0"></Frame>
 
         </Grid>
 
+
     </Grid>
-    </Border>
+
 </Window>

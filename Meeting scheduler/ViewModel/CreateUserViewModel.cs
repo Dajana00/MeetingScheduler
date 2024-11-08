@@ -4,6 +4,7 @@ using MeetingScheduler.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -20,10 +21,10 @@ namespace MeetingScheduler.ViewModel
         private string _lastName;
         private string _username;
         private string _password;
-        private string _email;
         private string _phoneNumber;
 
         private readonly UserService _userService;
+        public ICommand CreateUserCommand { get; }
 
         public string FirstName
         {
@@ -35,7 +36,6 @@ namespace MeetingScheduler.ViewModel
 
             }
         }
-
         public string LastName
         {
             get => _lastName;
@@ -54,11 +54,21 @@ namespace MeetingScheduler.ViewModel
             set { _password = value; OnPropertyChanged(nameof(Password)); }
         }
 
+        private string _email;
+
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", ErrorMessage = "Invalid email format.")]
         public string Email
         {
             get => _email;
-            set { _email = value; OnPropertyChanged(nameof(Email)); }
+            set
+            {
+                _email = value;
+                OnPropertyChanged(nameof(Email));
+            }
         }
+       
+
+      
 
         public string PhoneNumber
         {
@@ -66,15 +76,12 @@ namespace MeetingScheduler.ViewModel
             set { _phoneNumber = value; OnPropertyChanged(nameof(PhoneNumber)); }
         }
 
-        public ICommand CreateUserCommand { get; }
 
         public CreateUserViewModel()
         {
             _userService = new UserService();
             CreateUserCommand = new RelayCommand(CreateUser, CanCreateUser);
         }
-
-
 
         private bool CanCreateUser()
         {
@@ -87,15 +94,28 @@ namespace MeetingScheduler.ViewModel
 
         private void CreateUser()
         {
-            User newUser = new User(FirstName,LastName,Username,Password,Email,PhoneNumber,false);  // ****NE ZABBORAVI**************
+            User newUser = new User(FirstName,LastName,Username,PasswordHasher.HashPassword(Password),Email,PhoneNumber,false);  // ****NE ZABBORAVI**************
             try
             {
                 _userService.Create(newUser);
+                MessageBox.Show("User successfully registered!", "Registration", MessageBoxButton.OK, MessageBoxImage.Information);
+                RefreshForm();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error during user registration: {ex.Message}");
             }
+        }
+
+        private void RefreshForm()
+        {
+            FirstName = string.Empty;
+            LastName = string.Empty;
+            Username = string.Empty;
+            Password = string.Empty;
+            Email = string.Empty;
+            PhoneNumber = string.Empty;
         }
     }
 }

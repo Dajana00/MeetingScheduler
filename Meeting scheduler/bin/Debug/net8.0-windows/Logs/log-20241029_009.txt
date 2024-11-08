@@ -1,4 +1,0 @@
-2024-10-29 14:30:24.029 +01:00 [INF] User login try: daks
-2024-10-29 14:30:26.067 +01:00 [INF] User successifully logged in
-2024-10-29 14:30:47.807 +01:00 [INF] Searh for person with {id}
-2024-10-29 14:38:38.035 +01:00 [INF] Application started.

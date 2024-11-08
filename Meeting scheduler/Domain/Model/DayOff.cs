@@ -12,7 +12,7 @@ namespace MeetingScheduler.Domain.Model
         public string Reason { get; set; } 
 
         public DayOff() {
-            ColorHex = "#A9A9A9";
+            ColorHex = "#74d4f7";
         }
 
         public DayOff(string reason, User user, DateTime startDate, DateTime endDate, Status status)
@@ -22,7 +22,7 @@ namespace MeetingScheduler.Domain.Model
             StartDate = startDate;  
             EndDate = endDate;  
             Status = status;
-            ColorHex = "#A9A9A9";
+            ColorHex = "#74d4f7";
         }
     }
 }

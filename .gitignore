@@ -1,0 +1,3 @@
+# Ignorisanje obj i bin direktorijuma
+**/obj/
+**/bin/
